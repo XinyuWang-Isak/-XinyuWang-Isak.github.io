@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://xinyuwang-isak.github.io/-XinyuWang-Isak.github.io/</id>
+    <id>https://xinyuwang-isak.github.io</id>
     <title>Isak&apos;s Study Life</title>
-    <updated>2021-07-15T13:48:28.519Z</updated>
+    <updated>2021-07-15T13:49:11.036Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://xinyuwang-isak.github.io/-XinyuWang-Isak.github.io/"/>
-    <link rel="self" href="https://xinyuwang-isak.github.io/-XinyuWang-Isak.github.io/atom.xml"/>
+    <link rel="alternate" href="https://xinyuwang-isak.github.io"/>
+    <link rel="self" href="https://xinyuwang-isak.github.io/atom.xml"/>
     <subtitle>Be a better person than yesterday.</subtitle>
-    <logo>https://xinyuwang-isak.github.io/-XinyuWang-Isak.github.io/images/avatar.png</logo>
-    <icon>https://xinyuwang-isak.github.io/-XinyuWang-Isak.github.io/favicon.ico</icon>
+    <logo>https://xinyuwang-isak.github.io/images/avatar.png</logo>
+    <icon>https://xinyuwang-isak.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Isak&apos;s Study Life</rights>
     <entry>
         <title type="html"><![CDATA[Java.Thread]]></title>
-        <id>https://xinyuwang-isak.github.io/-XinyuWang-Isak.github.io/post/javathread/</id>
-        <link href="https://xinyuwang-isak.github.io/-XinyuWang-Isak.github.io/post/javathread/">
+        <id>https://xinyuwang-isak.github.io/post/javathread/</id>
+        <link href="https://xinyuwang-isak.github.io/post/javathread/">
         </link>
         <updated>2021-07-15T17:28:59.000Z</updated>
         <content type="html"><![CDATA[<h1 id="1-thread-runnable-callable">1. Thread, Runnable, Callable</h1>
@@ -102,8 +102,8 @@ thread.start();</li>
     </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://xinyuwang-isak.github.io/-XinyuWang-Isak.github.io/post/hello-gridea/</id>
-        <link href="https://xinyuwang-isak.github.io/-XinyuWang-Isak.github.io/post/hello-gridea/">
+        <id>https://xinyuwang-isak.github.io/post/hello-gridea/</id>
+        <link href="https://xinyuwang-isak.github.io/post/hello-gridea/">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
