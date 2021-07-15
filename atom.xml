@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://XinyuWang-Isak.github.io</id>
     <title>Isak&apos;s Study Life</title>
-    <updated>2021-07-15T14:08:46.809Z</updated>
+    <updated>2021-07-15T14:09:32.127Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://XinyuWang-Isak.github.io"/>
     <link rel="self" href="https://XinyuWang-Isak.github.io/atom.xml"/>
@@ -10,15 +10,6 @@
     <logo>https://XinyuWang-Isak.github.io/images/avatar.png</logo>
     <icon>https://XinyuWang-Isak.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Isak&apos;s Study Life</rights>
-    <entry>
-        <title type="html"><![CDATA[1111111]]></title>
-        <id>https://XinyuWang-Isak.github.io/1111111/</id>
-        <link href="https://XinyuWang-Isak.github.io/1111111/">
-        </link>
-        <updated>2021-07-15T16:03:54.000Z</updated>
-        <content type="html"><![CDATA[<p>2222222222222</p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Java.Thread]]></title>
         <id>https://XinyuWang-Isak.github.io/javathread/</id>
