@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://XinyuWang-Isak.github.io</id>
     <title>Isak&apos;s Study Life</title>
-    <updated>2021-07-18T06:30:01.878Z</updated>
+    <updated>2021-07-18T12:00:34.793Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://XinyuWang-Isak.github.io"/>
     <link rel="self" href="https://XinyuWang-Isak.github.io/atom.xml"/>
@@ -15,8 +15,9 @@
         <id>https://XinyuWang-Isak.github.io/javathread/</id>
         <link href="https://XinyuWang-Isak.github.io/javathread/">
         </link>
-        <updated>2021-07-15T09:49:41.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="1-thread-runnable-callable">1. Thread, Runnable, Callable</h1>
+        <updated>2021-07-15T11:49:41.000Z</updated>
+        <content type="html"><![CDATA[<p>[TOC]</p>
+<h1 id="1-thread-runnable-callable">1. Thread, Runnable, Callable</h1>
 <h2 id="11-declare-a-class-as-a-sub-class-of-thread">1.1 Declare a class as a sub class of Thread</h2>
 <p>This sub class should override run() method.</p>
 <pre><code>// Create Thread: Extend Class Thread, override run() method, call start to open thread.
@@ -344,6 +345,65 @@ public class TestCallable implements Callable&lt;Boolean&gt;
 <li>Can define return value.</li>
 <li>Can throw exceptions.</li>
 </ul>
+<h1 id="2-static-proxy">2. Static proxy</h1>
+<ul>
+<li>Actual object and proxy object must implement same interface.</li>
+</ul>
+<pre><code>public class StaticProxy
+{
+    public static void main(String[] args)
+    {
+        WorkingCompany workingCompany = new WorkingCompany(new You());
+        workingCompany.HappyWork();
+    }
+
+}
+
+interface Work
+{
+    void HappyWork();
+}
+
+// Actual character works.
+class You implements Work
+{
+
+    @Override
+    public void HappyWork()
+    {
+        System.out.println(&quot;You are working!&quot;);
+    }
+}
+
+// Proxy character helps you work.
+class WorkingCompany implements Work
+{
+    private Work target;
+
+    public WorkingCompany(Work target)
+    {
+        this.target = target;
+    }
+
+    @Override
+    public void HappyWork()
+    {
+        before();
+        this.target.HappyWork();
+        after();
+    }
+
+    private void after()
+    {
+        System.out.println(&quot;Learned skill.&quot;);
+    }
+
+    private void before()
+    {
+        System.out.println(&quot;Get paid.&quot;);
+    }
+}
+</code></pre>
 ]]></content>
     </entry>
 </feed>

@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://XinyuWang-Isak.github.io/favicon.ico?v=1626589790282">
+<link rel="shortcut icon" href="https://XinyuWang-Isak.github.io/favicon.ico?v=1626609633146">
 <link rel="stylesheet" href="https://XinyuWang-Isak.github.io/styles/main.css">
 
 
@@ -18,10 +18,10 @@
 
 
 
-    <meta name="description" content="1. Thread, Runnable, Callable
+    <meta name="description" content="[TOC]
+1. Thread, Runnable, Callable
 1.1 Declare a class as a sub class of Thread
-This sub class should override run() method.
-..." />
+This sub class should override run() me..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -31,7 +31,7 @@ This sub class should override run() method.
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://XinyuWang-Isak.github.io">
-        <img src="https://XinyuWang-Isak.github.io/images/avatar.png?v=1626589790282" class="site-logo">
+        <img src="https://XinyuWang-Isak.github.io/images/avatar.png?v=1626609633146" class="site-logo">
         <h1 class="site-title">Isak&#39;s Study Life</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -97,7 +97,8 @@ This sub class should override run() method.
             <div class="post-date">2021-07-15</div>
             
             <div class="post-content" v-pre>
-              <h1 id="1-thread-runnable-callable">1. Thread, Runnable, Callable</h1>
+              <p>[TOC]</p>
+<h1 id="1-thread-runnable-callable">1. Thread, Runnable, Callable</h1>
 <h2 id="11-declare-a-class-as-a-sub-class-of-thread">1.1 Declare a class as a sub class of Thread</h2>
 <p>This sub class should override run() method.</p>
 <pre><code>// Create Thread: Extend Class Thread, override run() method, call start to open thread.
@@ -425,6 +426,65 @@ public class TestCallable implements Callable&lt;Boolean&gt;
 <li>Can define return value.</li>
 <li>Can throw exceptions.</li>
 </ul>
+<h1 id="2-static-proxy">2. Static proxy</h1>
+<ul>
+<li>Actual object and proxy object must implement same interface.</li>
+</ul>
+<pre><code>public class StaticProxy
+{
+    public static void main(String[] args)
+    {
+        WorkingCompany workingCompany = new WorkingCompany(new You());
+        workingCompany.HappyWork();
+    }
+
+}
+
+interface Work
+{
+    void HappyWork();
+}
+
+// Actual character works.
+class You implements Work
+{
+
+    @Override
+    public void HappyWork()
+    {
+        System.out.println(&quot;You are working!&quot;);
+    }
+}
+
+// Proxy character helps you work.
+class WorkingCompany implements Work
+{
+    private Work target;
+
+    public WorkingCompany(Work target)
+    {
+        this.target = target;
+    }
+
+    @Override
+    public void HappyWork()
+    {
+        before();
+        this.target.HappyWork();
+        after();
+    }
+
+    private void after()
+    {
+        System.out.println(&quot;Learned skill.&quot;);
+    }
+
+    private void before()
+    {
+        System.out.println(&quot;Get paid.&quot;);
+    }
+}
+</code></pre>
 
             </div>
             
