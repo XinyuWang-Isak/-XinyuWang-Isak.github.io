@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://XinyuWang-Isak.github.io</id>
     <title>Isak&apos;s Study Life</title>
-    <updated>2021-07-18T12:07:29.924Z</updated>
+    <updated>2021-07-18T23:21:48.465Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://XinyuWang-Isak.github.io"/>
     <link rel="self" href="https://XinyuWang-Isak.github.io/atom.xml"/>
@@ -15,7 +15,7 @@
         <id>https://XinyuWang-Isak.github.io/javathread/</id>
         <link href="https://XinyuWang-Isak.github.io/javathread/">
         </link>
-        <updated>2021-07-15T15:49:41.000Z</updated>
+        <updated>2021-07-15T19:49:41.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li><a href="#1-thread-runnable-callable">1. Thread, Runnable, Callable</a>
 <ul>
@@ -31,19 +31,15 @@
 <h2 id="11-declare-a-class-as-a-sub-class-of-thread">1.1 Declare a class as a sub class of Thread</h2>
 <p>This sub class should override run() method.</p>
 <pre><code>// Create Thread: Extend Class Thread, override run() method, call start to open thread.
-public class ThreadTest extends Thread
-{
+public class ThreadTest extends Thread{
     @Override
-    public void run()
-    {
-        for (int i = 1; i &lt; 200; i++)
-        {
+    public void run(){
+        for (int i = 1; i &lt; 200; i++){
             System.out.println(&quot;Learning &quot;+i);
         }
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args){
         //main Thread.
 
         //Create a thread object.
@@ -52,8 +48,7 @@ public class ThreadTest extends Thread
         //Call start()to open thread.
         threadTest.start();
 
-        for (int i = 1; i &lt; 200; i++)
-        {
+        for (int i = 1; i &lt; 200; i++){
             System.out.println(&quot;Coding &quot;+i);
         }
     }
@@ -62,27 +57,22 @@ public class ThreadTest extends Thread
 <h2 id="12-declare-a-class-as-an-implementation-class-of-the-runnable-interface">1.2 Declare a class as an implementation class of the Runnable interface.</h2>
 <p>That class then implements the run method. An instance of the class can then be allocated, passed as an argument when creating Thread, and started.</p>
 <pre><code>//Implement runnable interface, override run() method, initialise and call the start() method.
-public class ThreadTest3 implements Runnable
-{
+public class ThreadTest3 implements Runnable{
 
     @Override
-    public void run()
-    {
-        for (int i = 0; i &lt; 200; i++)
-        {
+    public void run(){
+        for (int i = 0; i &lt; 200; i++){
             System.out.println(&quot;Learning: &quot; + i);
         }
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args){
         //Create the implement class object of runnable interface.
         ThreadTest3 testThread3 = new ThreadTest3();
         //Create the Thread object, start the execution by the object.
         new Thread(testThread3).start();
 
-        for (int i = 0; i &lt; 200; i++)
-        {
+        for (int i = 0; i &lt; 200; i++){
             System.out.println(&quot;Coding: &quot; + i);
         }
 
@@ -109,29 +99,24 @@ thread.start();</li>
 <h3 id="a-tickets-program">A  tickets program.</h3>
 <pre><code>//Issue found:
 // The threads are unsafe and the data may be chaos when same resource operated by multiple threads.
-public class ThreadTest4 implements Runnable
-{
+public class ThreadTest4 implements Runnable{
     private int ticketNums = 10;
 
     @Override
-    public void run()
-    {
+    public void run(){
         while (ticketNums &gt; 0)
         {
             //Simulation of time delay.
-            try
-            {
+            try{
                 Thread.sleep(100);
-            } catch (InterruptedException e)
-            {
+            } catch (InterruptedException e){
                 e.printStackTrace();
             }
             System.out.println(Thread.currentThread().getName() + &quot; get the &quot; + ticketNums-- + &quot; ticket&quot;);
         }
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args){
         ThreadTest4 ticket = new ThreadTest4();
 
         new Thread(ticket, &quot;John&quot;).start();
@@ -168,45 +153,34 @@ John get the 10 ticket
 <pre><code>package com.isak.demo;
 
 //Simulate the Hare and the Tortoise race.
-public class Race implements Runnable
-{
+public class Race implements Runnable{
     private static String winner;
     @Override
-    public void run()
-    {
-        for (int i = 0; i &lt;= 100; i++)
-        {
+    public void run(){
+        for (int i = 0; i &lt;= 100; i++){
             //Simulate the hare has a break
-            if (Thread.currentThread().getName().equals(&quot;Hare&quot;) &amp;&amp; i%10 == 0)
-            {
-                try
-                {
+            if (Thread.currentThread().getName().equals(&quot;Hare&quot;) &amp;&amp; i%10 == 0){
+                try{
                     Thread.sleep(10);
-                } catch (InterruptedException e)
-                {
+                } catch (InterruptedException e){
                     e.printStackTrace();
                 }
             }
 
             //Determine if the game is over;
             boolean flag = gameOver(i);
-            if (flag)
-            {
+            if (flag){
                 break;
             }
             System.out.println(Thread.currentThread().getName() + &quot; has run &quot; + i + &quot; steps.&quot;);
         }
     }
 
-    public boolean gameOver(int steps)
-    {
-        if (winner != null)
-        {
+    public boolean gameOver(int steps){
+        if (winner != null{
             return true;
-        }
-        {
-            if (steps == 100)
-            {
+        }{
+            if (steps == 100){
                 winner = Thread.currentThread().getName();
                 System.out.println(&quot;\nWinner is &quot; + winner + &quot;.&quot;);
                 return true;
@@ -215,8 +189,7 @@ public class Race implements Runnable
         return false;
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args){
         Race race = new Race();
 
         new Thread(race, &quot;Hare&quot;).start();
@@ -286,28 +259,24 @@ import java.net.URL;
 import java.util.concurrent.*;
 
 //Implement Callable interface to create threads of execution to download images
-public class TestCallable implements Callable&lt;Boolean&gt;
-{
+public class TestCallable implements Callable&lt;Boolean&gt;{
     private String url;
     private String name;
 
-    public TestCallable(String url, String name)
-    {
+    public TestCallable(String url, String name{
         this.url = url;
         this.name = name;
     }
 
     @Override
-    public Boolean call()
-    {
+    public Boolean call(){
         WebDownloader webDownloader = new WebDownloader();
         webDownloader.downloader(url, name);
         System.out.println(name + &quot; downloaded.&quot;);
         return true;
     }
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException
-    {
+    public static void main(String[] args) throws ExecutionException, InterruptedException{
         TestCallable t1 = new TestCallable(&quot;https://thirdwx.qlogo.cn/mmopen/vi_32/Z8DQouPCMRZT1iaG8lBrAKYYAZibqz6XNCKzukNpoY32lPfA8ibWM1PZoPgwYuwNPw0bib8ypmZMNgjxgN9hQGqVEg/132&quot;, &quot;1.jpg&quot;);
         TestCallable t2 = new TestCallable(&quot;https://i2.hdslb.com/bfs/face/5146886e11073f5022cc7d163081f03ccb8d1c85.jpg@96w_96h_1c_1s.webp&quot;, &quot;2.jpg&quot;);
         TestCallable t3 = new TestCallable(&quot;https://i0.hdslb.com/bfs/face/2950f21db889c384f8f8c56b56e5668145ffbab3.jpg@96w_96h_1c_1s.webp&quot;, &quot;3.jpg&quot;);
@@ -334,15 +303,11 @@ public class TestCallable implements Callable&lt;Boolean&gt;
         service.shutdown();
     }
 
-    class WebDownloader
-    {
-        public void downloader(String url, String name)
-        {
-            try
-            {
+    class WebDownloader{
+        public void downloader(String url, String name){
+            try{
                 FileUtils.copyURLToFile(new URL(url), new File(name));
-            } catch (IOException e)
-            {
+            } catch (IOException e){
                 e.printStackTrace();
             }
         }
@@ -350,14 +315,34 @@ public class TestCallable implements Callable&lt;Boolean&gt;
 
 }
 </code></pre>
-<p>Advantages of implementing Callable interface:</p>
+<h2 id="advantages-of-implementing-callable-interface">Advantages of implementing Callable interface:</h2>
 <ul>
 <li>Can define return value.</li>
 <li>Can throw exceptions.</li>
 </ul>
-<h1 id="2-static-proxy">2. Static proxy</h1>
+<h1 id="2-lambda-expression">2. Lambda expression.</h1>
+<p>λ is the 11th in Greek alphabet. Its essence belongs to the concept of functional programmin.</p>
+<h2 id="21-advantage">2.1 Advantage</h2>
+<ul>
+<li>Avoid excessive internal anonymous classes.</li>
+<li>Simplify codes and discard and the meaningless part.<br>
+new Thread( ()-&gt;System.out.println(&quot;Lambda&quot;).start;</li>
+</ul>
+<h2 id="22-fuctional-interface">2.2 Fuctional Interface</h2>
+<p>Fuctional interface is the key to learn lambda expression.<br>
+Definition:</p>
+<ul>
+<li>It's a fuctional interface if there is only one abstract method in the interface.<br>
+public interface Runnable<br>
+{<br>
+public<br>
+}</li>
+<li>We can</li>
+</ul>
+<h1 id="3-static-proxy">3. Static proxy</h1>
 <ul>
 <li>Actual object and proxy object must implement same interface.</li>
+<li>The proxy object proxies the real object.</li>
 </ul>
 <pre><code>public class StaticProxy
 {
@@ -374,7 +359,7 @@ interface Work
     void HappyWork();
 }
 
-// Actual character works.
+// Actual object works.
 class You implements Work
 {
 
@@ -385,7 +370,7 @@ class You implements Work
     }
 }
 
-// Proxy character helps you work.
+// Proxy helps you work.
 class WorkingCompany implements Work
 {
     private Work target;
@@ -399,7 +384,7 @@ class WorkingCompany implements Work
     public void HappyWork()
     {
         before();
-        this.target.HappyWork();
+        this.target.HappyWork();  // This is actual opbject.
         after();
     }
 
@@ -414,6 +399,11 @@ class WorkingCompany implements Work
     }
 }
 </code></pre>
+<h2 id="advantages">Advantages:</h2>
+<ul>
+<li>Proxy object can achieve things actual object can't do.</li>
+<li>Actual object can focus on doing its own thing.</li>
+</ul>
 ]]></content>
     </entry>
 </feed>
