@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://XinyuWang-Isak.github.io</id>
     <title>Isak&apos;s Study Life</title>
-    <updated>2021-07-18T12:05:35.352Z</updated>
+    <updated>2021-07-18T12:07:29.924Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://XinyuWang-Isak.github.io"/>
     <link rel="self" href="https://XinyuWang-Isak.github.io/atom.xml"/>
@@ -15,18 +15,13 @@
         <id>https://XinyuWang-Isak.github.io/javathread/</id>
         <link href="https://XinyuWang-Isak.github.io/javathread/">
         </link>
-        <updated>2021-07-15T13:49:41.000Z</updated>
+        <updated>2021-07-15T15:49:41.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li><a href="#1-thread-runnable-callable">1. Thread, Runnable, Callable</a>
 <ul>
 <li><a href="#11-declare-a-class-as-a-sub-class-of-thread">1.1 Declare a class as a sub class of Thread</a></li>
 <li><a href="#12-declare-a-class-as-an-implementation-class-of-the-runnable-interface">1.2 Declare a class as an implementation class of the Runnable interface.</a></li>
-<li><a href="#13-summary">1.3 Summary</a>
-<ul>
-<li><a href="#a--tickets-program">A  tickets program.</a></li>
-<li><a href="#the-hare-and-the-tortoise">The Hare and the Tortoise</a></li>
-</ul>
-</li>
+<li><a href="#13-summary">1.3 Summary</a></li>
 <li><a href="#14--implement-callable-interface">1.4  Implement Callable interface.</a></li>
 </ul>
 </li>
