@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://XinyuWang-Isak.github.io/favicon.ico?v=1626650486709">
+<link rel="shortcut icon" href="https://XinyuWang-Isak.github.io/favicon.ico?v=1626679659285">
 <link rel="stylesheet" href="https://XinyuWang-Isak.github.io/styles/main.css">
 
 
@@ -32,7 +32,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://XinyuWang-Isak.github.io">
-        <img src="https://XinyuWang-Isak.github.io/images/avatar.png?v=1626650486709" class="site-logo">
+        <img src="https://XinyuWang-Isak.github.io/images/avatar.png?v=1626679659285" class="site-logo">
         <h1 class="site-title">Isak&#39;s Study Life</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -103,11 +103,30 @@
 <ul>
 <li><a href="#11-declare-a-class-as-a-sub-class-of-thread">1.1 Declare a class as a sub class of Thread</a></li>
 <li><a href="#12-declare-a-class-as-an-implementation-class-of-the-runnable-interface">1.2 Declare a class as an implementation class of the Runnable interface.</a></li>
-<li><a href="#13-summary">1.3 Summary</a></li>
-<li><a href="#14--implement-callable-interface">1.4  Implement Callable interface.</a></li>
+<li><a href="#13-summary">1.3 Summary</a>
+<ul>
+<li><a href="#a--tickets-program">A  tickets program.</a></li>
+<li><a href="#the-hare-and-the-tortoise">The Hare and the Tortoise</a></li>
 </ul>
 </li>
-<li><a href="#2-static-proxy">2. Static proxy</a></li>
+<li><a href="#14--implement-callable-interface">1.4  Implement Callable interface.</a></li>
+<li><a href="#advantages-of-implementing-callable-interface">Advantages of implementing Callable interface:</a></li>
+</ul>
+</li>
+<li><a href="#2-lambda-expression">2. Lambda expression.</a>
+<ul>
+<li><a href="#21-advantage">2.1 Advantage</a></li>
+<li><a href="#22-fuctional-interface">2.2 Fuctional Interface</a></li>
+<li><a href="#23-derivation">2.3 Derivation</a></li>
+<li><a href="#24-simplification">2.4 Simplification</a></li>
+</ul>
+</li>
+<li><a href="#3-static-proxy">3. Static proxy</a>
+<ul>
+<li><a href="#advantages">Advantages:</a></li>
+</ul>
+</li>
+<li><a href="#4-static-proxy-and-thread">4. Static proxy and Thread</a></li>
 </ul>
 <h1 id="1-thread-runnable-callable">1. Thread, Runnable, Callable</h1>
 <h2 id="11-declare-a-class-as-a-sub-class-of-thread">1.1 Declare a class as a sub class of Thread</h2>
@@ -138,7 +157,8 @@ public class ThreadTest extends Thread{
 </code></pre>
 <h2 id="12-declare-a-class-as-an-implementation-class-of-the-runnable-interface">1.2 Declare a class as an implementation class of the Runnable interface.</h2>
 <p>That class then implements the run method. An instance of the class can then be allocated, passed as an argument when creating Thread, and started.</p>
-<pre><code>//Implement runnable interface, override run() method, initialise and call the start() method.
+<pre><code>//Implement runnable interface, override run() method,
+//initialise and call the start() method.
 public class ThreadTest3 implements Runnable{
 
     @Override
@@ -179,9 +199,7 @@ thread.start();</li>
 <li>Recommended: Avoid the limitation of Java single inheritance. Flexible and convinent for an object to be used by multiple threads.</li>
 </ul>
 <h3 id="a-tickets-program">A  tickets program.</h3>
-<pre><code>//Issue found:
-// The threads are unsafe and the data may be chaos when same resource operated by multiple threads.
-public class ThreadTest4 implements Runnable{
+<pre><code>public class ThreadTest4 implements Runnable{
     private int ticketNums = 10;
 
     @Override
@@ -223,7 +241,8 @@ Lisa get the 1 ticket
 Ash get the 0 ticket
 Ash get the -1 ticket
 </code></pre>
-<p>Issue found:</p>
+<p>Issue found:<br>
+The threads are unsafe and the data may be chaos when same resource operated by multiple threads.</p>
 <pre><code>Ash get the 10 ticket
 John get the 10 ticket
 </code></pre>
@@ -407,76 +426,165 @@ public class TestCallable implements Callable&lt;Boolean&gt;{
 <h2 id="21-advantage">2.1 Advantage</h2>
 <ul>
 <li>Avoid excessive internal anonymous classes.</li>
-<li>Simplify codes and discard and the meaningless part.<br>
-new Thread( ()-&gt;System.out.println(&quot;Lambda&quot;).start;</li>
+<li>Simplify codes and discard and the meaningless part.</li>
 </ul>
+<pre><code>new Thread( ()-&gt;System.out.println(&quot;Lambda&quot;).start;
+</code></pre>
 <h2 id="22-fuctional-interface">2.2 Fuctional Interface</h2>
-<p>Fuctional interface is the key to learn lambda expression.<br>
-Definition:</p>
+<p>Fuctional interface is the key to learn lambda expression.</p>
+<p>Definition:</p>
 <ul>
-<li>It's a fuctional interface if there is only one abstract method in the interface.<br>
-public interface Runnable<br>
-{<br>
-public<br>
-}</li>
-<li>We can</li>
+<li>It's a fuctional interface if there is only one abstract method in the interface.</li>
 </ul>
+<pre><code>    public interface Runnable{
+        public abstact void run();
+    }
+</code></pre>
+<ul>
+<li>We can create the fuctional interface object through lambda expression.</li>
+</ul>
+<h2 id="23-derivation">2.3 Derivation</h2>
+<pre><code>//The derivation of the lambda expression.
+public class TestLambda1 {
+
+    //3.Static inner class.
+    static class Like2 implements Ilike{
+        @Override
+        public void lambda() {
+            System.out.println(&quot;I like Lambda(Static inner class).&quot;);
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Ilike like = new Like();
+        like.lambda();
+
+        like = new Like2();
+        like.lambda();
+
+        //4.Local inner class.
+        class Like3 implements Ilike{
+            @Override
+            public void lambda() {
+                System.out.println(&quot;I like lambda(Local inner class).&quot;);
+            }
+        }
+
+        like = new Like3();
+        like.lambda();
+
+        //5.Anonymous inner class.
+        //Doesn't have name of class, must rely on interface or super class.
+        like = new Ilike(){
+            @Override
+            public void lambda(){
+                System.out.println(&quot;I like lambda(Anonymous inner class).&quot;);
+            }
+        };
+        like.lambda();
+
+        //6.Simplify with lambda expression.
+        like = () -&gt; {
+            System.out.println(&quot;I like lambda(Anonymous inner class).&quot;);
+        };
+        like.lambda();
+
+    }
+
+}
+
+//1. Declare a functional interface.
+interface Ilike{
+    void lambda();
+}
+
+//2.Implement class.
+class Like implements Ilike{
+    @Override
+    public void lambda() {
+        System.out.println(&quot;I like Lambda.&quot;);
+    }
+}
+
+</code></pre>
+<h2 id="24-simplification">2.4 Simplification</h2>
+<pre><code>interface ILove {
+    void love(int a);
+}
+
+public class TestLambda2 {
+
+    public static void main(String[] args) {
+
+        //Use lambda to simplify.
+        ILove love = (int a) -&gt; {
+            System.out.println(&quot;I love u--&gt;&quot; + a);
+        };
+
+        //Simplification 1: parameter type
+        love = (a) -&gt; {
+            System.out.println(&quot;I love u--&gt;&quot; + a);
+        };
+
+        //Simplification 2: parentheses ((Only single parameter)
+        love = a -&gt; {
+            System.out.println(&quot;I love u--&gt;&quot; + a);
+        };
+
+        //Simplification 3: braces (Only single line)
+        love = a -&gt; System.out.println(&quot;I love u--&gt;&quot; + a);
+    }
+}
+</code></pre>
 <h1 id="3-static-proxy">3. Static proxy</h1>
 <ul>
 <li>Actual object and proxy object must implement same interface.</li>
 <li>The proxy object proxies the real object.</li>
 </ul>
-<pre><code>public class StaticProxy
-{
-    public static void main(String[] args)
-    {
+<pre><code>public class StaticProxy{
+
+    public static void main(String[] args){
+
         WorkingCompany workingCompany = new WorkingCompany(new You());
         workingCompany.HappyWork();
-    }
+}
 
 }
 
-interface Work
-{
+interface Work{
     void HappyWork();
 }
 
 // Actual object works.
-class You implements Work
-{
+class You implements Work{
 
     @Override
-    public void HappyWork()
-    {
+    public void HappyWork(){
         System.out.println(&quot;You are working!&quot;);
     }
 }
 
 // Proxy helps you work.
-class WorkingCompany implements Work
-{
+class WorkingCompany implements Work{
     private Work target;
 
-    public WorkingCompany(Work target)
-    {
+    public WorkingCompany(Work target){
         this.target = target;
     }
 
     @Override
-    public void HappyWork()
-    {
+    public void HappyWork(){
         before();
         this.target.HappyWork();  // This is actual opbject.
         after();
     }
 
-    private void after()
-    {
+    private void after(){
         System.out.println(&quot;Learned skill.&quot;);
     }
 
-    private void before()
-    {
+    private void before(){
         System.out.println(&quot;Get paid.&quot;);
     }
 }
@@ -486,6 +594,27 @@ class WorkingCompany implements Work
 <li>Proxy object can achieve things actual object can't do.</li>
 <li>Actual object can focus on doing its own thing.</li>
 </ul>
+<h1 id="4-static-proxy-and-thread">4. Static proxy and Thread</h1>
+<p>Thread class implements Runnable interface:</p>
+<pre><code>public class Thread implements Runnable {
+    /* Make sure registerNatives is the first thing &lt;clinit&gt; does. */
+    private static native void registerNatives();
+    static {
+        registerNatives();
+    }
+</code></pre>
+<p>Therefore, the thread of execution can be replaced from:</p>
+<pre><code>new Thread(new Runnable(){
+    @Override
+    public void run(){
+        System.out.println(&quot;Thread is running.&quot;)
+    }
+}).start;
+</code></pre>
+<p>into:</p>
+<pre><code>new Thread(() -&gt; System.out.println(&quot;Thread is running.&quot;);).start();
+</code></pre>
+<p>---Thread class is actually a proxy, the real object is the anonymous inner class.---</p>
 
             </div>
             
