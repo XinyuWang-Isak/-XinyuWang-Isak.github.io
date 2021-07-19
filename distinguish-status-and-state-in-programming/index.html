@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Distinguish STATUS and STATE in programming | Isak&#39;s Study Life</title>
+<title>STATUS vs STATE in programming | Isak&#39;s Study Life</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://XinyuWang-Isak.github.io/favicon.ico?v=1626679659285">
+<link rel="shortcut icon" href="https://XinyuWang-Isak.github.io/favicon.ico?v=1626683603101">
 <link rel="stylesheet" href="https://XinyuWang-Isak.github.io/styles/main.css">
 
 
@@ -18,8 +18,9 @@
 
 
 
-    <meta name="description" content="It depends on the context
-State generally refers to the entire state of an entity - all its values and relationships at ..." />
+    <meta name="description" content="
+It depends on the context
+State generally refers to the entire state of an entity - all its values and relationships at..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -29,7 +30,7 @@ State generally refers to the entire state of an entity - all its values and rel
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://XinyuWang-Isak.github.io">
-        <img src="https://XinyuWang-Isak.github.io/images/avatar.png?v=1626679659285" class="site-logo">
+        <img src="https://XinyuWang-Isak.github.io/images/avatar.png?v=1626683603101" class="site-logo">
         <h1 class="site-title">Isak&#39;s Study Life</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -91,15 +92,44 @@ State generally refers to the entire state of an entity - all its values and rel
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Distinguish STATUS and STATE in programming</h2>
+            <h2 class="post-title">STATUS vs STATE in programming</h2>
             <div class="post-date">2021-07-19</div>
             
             <div class="post-content" v-pre>
-              <p>It depends on the context</p>
+              <hr>
+<p>It depends on the context</p>
 <p>State generally refers to the entire state of an entity - all its values and relationships at a particular point in time (usually, current)</p>
 <p>Status is more of a time-point, say, where something is at in a process or workflow - is it dirty (therefore requiring saving), is it complete, is it pending input, etc</p>
-<p>---Answer by Luke Schafer.<br>
----Refer to https://stackoverflow.com/questions/1162816/naming-conventions-state-versus-status</p>
+<p><em>Answer by Luke Schafer.</em><br>
+<em>Refer to https://stackoverflow.com/questions/1162816/naming-conventions-state-versus-status</em></p>
+<hr>
+<p>I like this question. The following is from my head but I think it fits quite well.</p>
+<ul>
+<li>
+<p>status is used to describe an outcome of an operation (e.g. success/fail).</p>
+</li>
+<li>
+<p>state is used to describe a stage in a process (e.g. pending/dispatched).</p>
+</li>
+</ul>
+<p>I also like this definition:</p>
+<ul>
+<li>status is a final (resulting) state.</li>
+</ul>
+<p>It is quite clear when applied to programming. Much less clear when you apply it to natural language. Let's take the examples from the english thread and see if it holds with the most upvoted answer.</p>
+<p><em>&quot;What is the current status of this project?&quot;</em><br>
+The answer should be<br>
+<em>&quot;In testing.&quot;</em></p>
+<p>Well, this might seem to contradict my definitions at a first look but we must realize the context. Probably some supervisor is asking his team about the project and how far they have reached. The point is that the supervisor is interested in the outcome up to now. The fact that there will be something after is just put away because it is not the point of the question.</p>
+<p>*&quot;What is the current state of this project?&quot; *<br>
+The answer should be</p>
+<ul>
+<li>On hold for financial analysis.&quot;*</li>
+</ul>
+<p>So I think that this very nicely demonstrates an essence of a state.<br>
+<em>&quot;On hold for financial analysis.&quot;</em> clearly focuses on the fact that the current situation is a part of some encompassing process and even suggests the next state.</p>
+<p><em>Answer by clime.</em><br>
+<em>Refer to https://softwareengineering.stackexchange.com/questions/219351/state-or-status-when-should-a-variable-name-contain-the-word-state-and-w</em></p>
 
             </div>
             

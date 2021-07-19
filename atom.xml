@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://XinyuWang-Isak.github.io</id>
     <title>Isak&apos;s Study Life</title>
-    <updated>2021-07-19T07:27:42.980Z</updated>
+    <updated>2021-07-19T08:33:33.658Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://XinyuWang-Isak.github.io"/>
     <link rel="self" href="https://XinyuWang-Isak.github.io/atom.xml"/>
@@ -11,16 +11,45 @@
     <icon>https://XinyuWang-Isak.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Isak&apos;s Study Life</rights>
     <entry>
-        <title type="html"><![CDATA[Distinguish STATUS and STATE in programming]]></title>
+        <title type="html"><![CDATA[STATUS vs STATE in programming]]></title>
         <id>https://XinyuWang-Isak.github.io/distinguish-status-and-state-in-programming/</id>
         <link href="https://XinyuWang-Isak.github.io/distinguish-status-and-state-in-programming/">
         </link>
-        <updated>2021-07-19T09:22:17.000Z</updated>
-        <content type="html"><![CDATA[<p>It depends on the context</p>
+        <updated>2021-07-19T13:22:17.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<p>It depends on the context</p>
 <p>State generally refers to the entire state of an entity - all its values and relationships at a particular point in time (usually, current)</p>
 <p>Status is more of a time-point, say, where something is at in a process or workflow - is it dirty (therefore requiring saving), is it complete, is it pending input, etc</p>
-<p>---Answer by Luke Schafer.<br>
----Refer to https://stackoverflow.com/questions/1162816/naming-conventions-state-versus-status</p>
+<p><em>Answer by Luke Schafer.</em><br>
+<em>Refer to https://stackoverflow.com/questions/1162816/naming-conventions-state-versus-status</em></p>
+<hr>
+<p>I like this question. The following is from my head but I think it fits quite well.</p>
+<ul>
+<li>
+<p>status is used to describe an outcome of an operation (e.g. success/fail).</p>
+</li>
+<li>
+<p>state is used to describe a stage in a process (e.g. pending/dispatched).</p>
+</li>
+</ul>
+<p>I also like this definition:</p>
+<ul>
+<li>status is a final (resulting) state.</li>
+</ul>
+<p>It is quite clear when applied to programming. Much less clear when you apply it to natural language. Let's take the examples from the english thread and see if it holds with the most upvoted answer.</p>
+<p><em>&quot;What is the current status of this project?&quot;</em><br>
+The answer should be<br>
+<em>&quot;In testing.&quot;</em></p>
+<p>Well, this might seem to contradict my definitions at a first look but we must realize the context. Probably some supervisor is asking his team about the project and how far they have reached. The point is that the supervisor is interested in the outcome up to now. The fact that there will be something after is just put away because it is not the point of the question.</p>
+<p>*&quot;What is the current state of this project?&quot; *<br>
+The answer should be</p>
+<ul>
+<li>On hold for financial analysis.&quot;*</li>
+</ul>
+<p>So I think that this very nicely demonstrates an essence of a state.<br>
+<em>&quot;On hold for financial analysis.&quot;</em> clearly focuses on the fact that the current situation is a part of some encompassing process and even suggests the next state.</p>
+<p><em>Answer by clime.</em><br>
+<em>Refer to https://softwareengineering.stackexchange.com/questions/219351/state-or-status-when-should-a-variable-name-contain-the-word-state-and-w</em></p>
 ]]></content>
     </entry>
     <entry>
