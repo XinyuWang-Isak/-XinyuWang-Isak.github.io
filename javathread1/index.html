@@ -1,589 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://XinyuWang-Isak.github.io</id>
-    <title>Isak&apos;s Study Life</title>
-    <updated>2021-07-20T14:02:41.908Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://XinyuWang-Isak.github.io"/>
-    <link rel="self" href="https://XinyuWang-Isak.github.io/atom.xml"/>
-    <subtitle>Be a better person than yesterday.</subtitle>
-    <logo>https://XinyuWang-Isak.github.io/images/avatar.png</logo>
-    <icon>https://XinyuWang-Isak.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Isak&apos;s Study Life</rights>
-    <entry>
-        <title type="html"><![CDATA[STATUS vs STATE in programming]]></title>
-        <id>https://XinyuWang-Isak.github.io/distinguish-status-and-state-in-programming/</id>
-        <link href="https://XinyuWang-Isak.github.io/distinguish-status-and-state-in-programming/">
-        </link>
-        <updated>2021-07-19T13:22:17.000Z</updated>
-        <content type="html"><![CDATA[<hr>
-<p>It depends on the context</p>
-<p>State generally refers to the entire state of an entity - all its values and relationships at a particular point in time (usually, current)</p>
-<p>Status is more of a time-point, say, where something is at in a process or workflow - is it dirty (therefore requiring saving), is it complete, is it pending input, etc</p>
-<p><em>Answer by Luke Schafer.</em><br>
-<em>Refer to https://stackoverflow.com/questions/1162816/naming-conventions-state-versus-status</em></p>
-<hr>
-<p>I like this question. The following is from my head but I think it fits quite well.</p>
-<ul>
-<li>
-<p>status is used to describe an outcome of an operation (e.g. success/fail).</p>
-</li>
-<li>
-<p>state is used to describe a stage in a process (e.g. pending/dispatched).</p>
-</li>
-</ul>
-<p>I also like this definition:</p>
-<ul>
-<li>status is a final (resulting) state.</li>
-</ul>
-<p>It is quite clear when applied to programming. Much less clear when you apply it to natural language. Let's take the examples from the english thread and see if it holds with the most upvoted answer.</p>
-<p><em>&quot;What is the current status of this project?&quot;</em><br>
-The answer should be<br>
-<em>&quot;In testing.&quot;</em></p>
-<p>Well, this might seem to contradict my definitions at a first look but we must realize the context. Probably some supervisor is asking his team about the project and how far they have reached. The point is that the supervisor is interested in the outcome up to now. The fact that there will be something after is just put away because it is not the point of the question.</p>
-<p>*&quot;What is the current state of this project?&quot; *<br>
-The answer should be</p>
-<ul>
-<li>On hold for financial analysis.&quot;*</li>
-</ul>
-<p>So I think that this very nicely demonstrates an essence of a state.<br>
-<em>&quot;On hold for financial analysis.&quot;</em> clearly focuses on the fact that the current situation is a part of some encompassing process and even suggests the next state.</p>
-<p><em>Answer by clime.</em><br>
-<em>Refer to https://softwareengineering.stackexchange.com/questions/219351/state-or-status-when-should-a-variable-name-contain-the-word-state-and-w</em></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java.Thread]]></title>
-        <id>https://XinyuWang-Isak.github.io/javathread/</id>
-        <link href="https://XinyuWang-Isak.github.io/javathread/">
-        </link>
-        <updated>2021-07-15T23:49:41.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li><a href="#1-thread-runnable-callable">1. Thread, Runnable, Callable</a>
-<ul>
-<li><a href="#11-declare-a-class-as-a-sub-class-of-thread">1.1 Declare a class as a sub class of Thread</a></li>
-<li><a href="#12-declare-a-class-as-an-implementation-class-of-the-runnable-interface">1.2 Declare a class as an implementation class of the Runnable interface.</a></li>
-<li><a href="#13-summary">1.3 Summary</a>
-<ul>
-<li><a href="#a--tickets-program">A  tickets program.</a></li>
-<li><a href="#the-hare-and-the-tortoise">The Hare and the Tortoise</a></li>
-</ul>
-</li>
-<li><a href="#14--implement-callable-interface">1.4  Implement Callable interface.</a></li>
-<li><a href="#advantages-of-implementing-callable-interface">Advantages of implementing Callable interface:</a></li>
-</ul>
-</li>
-<li><a href="#2-lambda-expression">2. Lambda expression.</a>
-<ul>
-<li><a href="#21-advantage">2.1 Advantage</a></li>
-<li><a href="#22-fuctional-interface">2.2 Fuctional Interface</a></li>
-<li><a href="#23-derivation">2.3 Derivation</a></li>
-<li><a href="#24-simplification">2.4 Simplification</a></li>
-</ul>
-</li>
-<li><a href="#3-static-proxy">3. Static proxy</a>
-<ul>
-<li><a href="#advantages">Advantages:</a></li>
-</ul>
-</li>
-<li><a href="#4-static-proxy-and-thread">4. Static proxy and Thread</a></li>
-</ul>
-<h1 id="1-thread-runnable-callable">1. Thread, Runnable, Callable</h1>
-<h2 id="11-declare-a-class-as-a-sub-class-of-thread">1.1 Declare a class as a sub class of Thread</h2>
-<p>This sub class should override run() method.</p>
-<pre><code>// Create Thread: Extend Class Thread, override run() method, call start to open thread.
-public class ThreadTest extends Thread{
-    @Override
-    public void run(){
-        for (int i = 1; i &lt; 200; i++){
-            System.out.println(&quot;Learning &quot;+i);
-        }
-    }
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
 
-    public static void main(String[] args){
-        //main Thread.
+<title>Java.Thread | Isak&#39;s Study Life</title>
 
-        //Create a thread object.
-        ThreadTest threadTest = new ThreadTest();
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-        //Call start()to open thread.
-        threadTest.start();
-
-        for (int i = 1; i &lt; 200; i++){
-            System.out.println(&quot;Coding &quot;+i);
-        }
-    }
-}
-</code></pre>
-<h2 id="12-declare-a-class-as-an-implementation-class-of-the-runnable-interface">1.2 Declare a class as an implementation class of the Runnable interface.</h2>
-<p>That class then implements the run method. An instance of the class can then be allocated, passed as an argument when creating Thread, and started.</p>
-<pre><code>//Implement runnable interface, override run() method,
-//initialise and call the start() method.
-public class ThreadTest3 implements Runnable{
-
-    @Override
-    public void run(){
-        for (int i = 0; i &lt; 200; i++){
-            System.out.println(&quot;Learning: &quot; + i);
-        }
-    }
-
-    public static void main(String[] args){
-        //Create the implement class object of runnable interface.
-        ThreadTest3 testThread3 = new ThreadTest3();
-        //Create the Thread object, start the execution by the object.
-        new Thread(testThread3).start();
-
-        for (int i = 0; i &lt; 200; i++){
-            System.out.println(&quot;Coding: &quot; + i);
-        }
-
-    }
-}
-</code></pre>
-<h2 id="13-summary">1.3 Summary</h2>
-<p>Two ways to create a new thread of execution</p>
-<p>(1) Extend Class</p>
-<ul>
-<li>Sub class extends Thread to have ability of multiple threads.</li>
-<li>Start thread: SubclassObject.start();</li>
-<li>Not recommended: The limitation of Java single inheritance.</li>
-</ul>
-<p>(2) Implement  interface</p>
-<ul>
-<li>Declare a class implements the Runnable interface.</li>
-<li>Start thread: Pass an object of this ImplementedClass as a parameter into Thread Class's constructor.<br>
-ThreadTest threadTest = new ThreadTest();<br>
-Thread thread = new Thread(threadTest);<br>
-thread.start();</li>
-<li>Recommended: Avoid the limitation of Java single inheritance. Flexible and convinent for an object to be used by multiple threads.</li>
-</ul>
-<h3 id="a-tickets-program">A  tickets program.</h3>
-<pre><code>public class ThreadTest4 implements Runnable{
-    private int ticketNums = 10;
-
-    @Override
-    public void run(){
-        while (ticketNums &gt; 0)
-        {
-            //Simulation of time delay.
-            try{
-                Thread.sleep(100);
-            } catch (InterruptedException e){
-                e.printStackTrace();
-            }
-            System.out.println(Thread.currentThread().getName() + &quot; get the &quot; + ticketNums-- + &quot; ticket&quot;);
-        }
-    }
-
-    public static void main(String[] args){
-        ThreadTest4 ticket = new ThreadTest4();
-
-        new Thread(ticket, &quot;John&quot;).start();
-        new Thread(ticket, &quot;Ash&quot;).start();
-        new Thread(ticket, &quot;Lisa&quot;).start();
-
-    }
-}
-</code></pre>
-<p>This code's execution result is:</p>
-<pre><code>Ash get the 10 ticket
-Lisa get the 9 ticket
-John get the 10 ticket
-Lisa get the 8 ticket
-John get the 7 ticket
-Ash get the 6 ticket
-Lisa get the 5 ticket
-John get the 4 ticket
-Ash get the 3 ticket
-John get the 2 ticket
-Lisa get the 1 ticket
-Ash get the 0 ticket
-Ash get the -1 ticket
-</code></pre>
-<p>Issue found:<br>
-The threads are unsafe and the data may be chaos when same resource operated by multiple threads.</p>
-<pre><code>Ash get the 10 ticket
-John get the 10 ticket
-</code></pre>
-<p>and</p>
-<pre><code>Ash get the -1 ticket
-</code></pre>
-<p>The threads are unsafe and the data may be chaos when same resource operated by multiple threads.</p>
-<h3 id="the-hare-and-the-tortoise">The Hare and the Tortoise</h3>
-<pre><code>package com.isak.demo;
-
-//Simulate the Hare and the Tortoise race.
-public class Race implements Runnable{
-    private static String winner;
-    @Override
-    public void run(){
-        for (int i = 0; i &lt;= 100; i++){
-            //Simulate the hare has a break
-            if (Thread.currentThread().getName().equals(&quot;Hare&quot;) &amp;&amp; i%10 == 0){
-                try{
-                    Thread.sleep(10);
-                } catch (InterruptedException e){
-                    e.printStackTrace();
-                }
-            }
-
-            //Determine if the game is over;
-            boolean flag = gameOver(i);
-            if (flag){
-                break;
-            }
-            System.out.println(Thread.currentThread().getName() + &quot; has run &quot; + i + &quot; steps.&quot;);
-        }
-    }
-
-    public boolean gameOver(int steps){
-        if (winner != null{
-            return true;
-        }{
-            if (steps == 100){
-                winner = Thread.currentThread().getName();
-                System.out.println(&quot;\nWinner is &quot; + winner + &quot;.&quot;);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static void main(String[] args){
-        Race race = new Race();
-
-        new Thread(race, &quot;Hare&quot;).start();
-        new Thread(race, &quot;Tortoise&quot;).start();
-    }
-}
-</code></pre>
-<p>Execution result:</p>
-<pre><code>Tortoise has run 0 steps.
-Hare has run 0 steps.
-Tortoise has run 1 steps.
-Hare has run 1 steps.
-Tortoise has run 2 steps.
-...
-Tortoise has run 94 steps.
-Tortoise has run 95 steps.
-Tortoise has run 96 steps.
-Tortoise has run 97 steps.
-Tortoise has run 98 steps.
-Tortoise has run 99 steps.
-
-Winner is Tortoise.
-</code></pre>
-<h2 id="14-implement-callable-interface">1.4  Implement Callable interface.</h2>
-<ul>
-<li>
-<ol>
-<li>Implement Callable interface, return value is needed.</li>
-</ol>
-</li>
-<li>
-<ol start="2">
-<li>Override call() method, Exception need to be thrown.</li>
-</ol>
-</li>
-<li>
-<ol start="3">
-<li>Create target object.</li>
-</ol>
-</li>
-<li>
-<ol start="4">
-<li>Create ExecutorService.</li>
-</ol>
-</li>
-<li>
-<ol start="5">
-<li>Submit and execute.</li>
-</ol>
-</li>
-<li>
-<ol start="6">
-<li>Acquire result.</li>
-</ol>
-</li>
-<li>
-<ol start="7">
-<li>Shutdown service.</li>
-</ol>
-</li>
-</ul>
-<pre><code>import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.concurrent.*;
-
-//Implement Callable interface to create threads of execution to download images
-public class TestCallable implements Callable&lt;Boolean&gt;{
-    private String url;
-    private String name;
-
-    public TestCallable(String url, String name{
-        this.url = url;
-        this.name = name;
-    }
-
-    @Override
-    public Boolean call(){
-        WebDownloader webDownloader = new WebDownloader();
-        webDownloader.downloader(url, name);
-        System.out.println(name + &quot; downloaded.&quot;);
-        return true;
-    }
-
-    public static void main(String[] args) throws ExecutionException, InterruptedException{
-        TestCallable t1 = new TestCallable(&quot;https://thirdwx.qlogo.cn/mmopen/vi_32/Z8DQouPCMRZT1iaG8lBrAKYYAZibqz6XNCKzukNpoY32lPfA8ibWM1PZoPgwYuwNPw0bib8ypmZMNgjxgN9hQGqVEg/132&quot;, &quot;1.jpg&quot;);
-        TestCallable t2 = new TestCallable(&quot;https://i2.hdslb.com/bfs/face/5146886e11073f5022cc7d163081f03ccb8d1c85.jpg@96w_96h_1c_1s.webp&quot;, &quot;2.jpg&quot;);
-        TestCallable t3 = new TestCallable(&quot;https://i0.hdslb.com/bfs/face/2950f21db889c384f8f8c56b56e5668145ffbab3.jpg@96w_96h_1c_1s.webp&quot;, &quot;3.jpg&quot;);
-
-        //Create ExecutorService.
-        ExecutorService service = Executors.newFixedThreadPool(3);
-
-        //Submit and execute.
-        Future&lt;Boolean&gt; r1 = service.submit(t1);
-        Future&lt;Boolean&gt; r2 = service.submit(t2);
-        Future&lt;Boolean&gt; r3 = service.submit(t3);
-
-        //Acquire result.
-
-        boolean result1 = r1.get();
-        boolean result2 = r2.get();
-        boolean result3 = r3.get();
-
-        System.out.println(result1);
-        System.out.println(result2);
-        System.out.println(result3);
-
-        //Shutdown the service.
-        service.shutdown();
-    }
-
-    class WebDownloader{
-        public void downloader(String url, String name){
-            try{
-                FileUtils.copyURLToFile(new URL(url), new File(name));
-            } catch (IOException e){
-                e.printStackTrace();
-            }
-        }
-    }
-
-}
-</code></pre>
-<h2 id="advantages-of-implementing-callable-interface">Advantages of implementing Callable interface:</h2>
-<ul>
-<li>Can define return value.</li>
-<li>Can throw exceptions.</li>
-</ul>
-<h1 id="2-lambda-expression">2. Lambda expression.</h1>
-<p>λ is the 11th in Greek alphabet. Its essence belongs to the concept of functional programmin.</p>
-<h2 id="21-advantage">2.1 Advantage</h2>
-<ul>
-<li>Avoid excessive internal anonymous classes.</li>
-<li>Simplify codes and discard and the meaningless part.</li>
-</ul>
-<pre><code>new Thread( ()-&gt;System.out.println(&quot;Lambda&quot;).start;
-</code></pre>
-<h2 id="22-fuctional-interface">2.2 Fuctional Interface</h2>
-<p>Fuctional interface is the key to learn lambda expression.</p>
-<p>Definition:</p>
-<ul>
-<li>It's a fuctional interface if there is only one abstract method in the interface.</li>
-</ul>
-<pre><code>    public interface Runnable{
-        public abstact void run();
-    }
-</code></pre>
-<ul>
-<li>We can create the fuctional interface object through lambda expression.</li>
-</ul>
-<h2 id="23-derivation">2.3 Derivation</h2>
-<pre><code>//The derivation of the lambda expression.
-public class TestLambda1 {
-
-    //3.Static inner class.
-    static class Like2 implements Ilike{
-        @Override
-        public void lambda() {
-            System.out.println(&quot;I like Lambda(Static inner class).&quot;);
-        }
-    }
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://XinyuWang-Isak.github.io/favicon.ico?v=1626789740307">
+<link rel="stylesheet" href="https://XinyuWang-Isak.github.io/styles/main.css">
 
 
-    public static void main(String[] args) {
-        Ilike like = new Like();
-        like.lambda();
 
-        like = new Like2();
-        like.lambda();
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-        //4.Local inner class.
-        class Like3 implements Ilike{
-            @Override
-            public void lambda() {
-                System.out.println(&quot;I like lambda(Local inner class).&quot;);
-            }
-        }
 
-        like = new Like3();
-        like.lambda();
 
-        //5.Anonymous inner class.
-        //Doesn't have name of class, must rely on interface or super class.
-        like = new Ilike(){
-            @Override
-            public void lambda(){
-                System.out.println(&quot;I like lambda(Anonymous inner class).&quot;);
-            }
-        };
-        like.lambda();
+    <meta name="description" content="
+1. Thread, Runnable, Callable
 
-        //6.Simplify with lambda expression.
-        like = () -&gt; {
-            System.out.println(&quot;I like lambda(Anonymous inner class).&quot;);
-        };
-        like.lambda();
+1.1 Declare a class as a sub class of Thread
+1.2 Declare a class as an implementation cl..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
 
-    }
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://XinyuWang-Isak.github.io">
+        <img src="https://XinyuWang-Isak.github.io/images/avatar.png?v=1626789740307" class="site-logo">
+        <h1 class="site-title">Isak&#39;s Study Life</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            Prime page
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            Draft
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            Labels
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Be a better person than yesterday.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://XinyuWang-Isak.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
-}
 
-//1. Declare a functional interface.
-interface Ilike{
-    void lambda();
-}
-
-//2.Implement class.
-class Like implements Ilike{
-    @Override
-    public void lambda() {
-        System.out.println(&quot;I like Lambda.&quot;);
-    }
-}
-
-</code></pre>
-<h2 id="24-simplification">2.4 Simplification</h2>
-<pre><code>interface ILove {
-    void love(int a);
-}
-
-public class TestLambda2 {
-
-    public static void main(String[] args) {
-
-        //Use lambda to simplify.
-        ILove love = (int a) -&gt; {
-            System.out.println(&quot;I love u--&gt;&quot; + a);
-        };
-
-        //Simplification 1: parameter type
-        love = (a) -&gt; {
-            System.out.println(&quot;I love u--&gt;&quot; + a);
-        };
-
-        //Simplification 2: parentheses ((Only single parameter)
-        love = a -&gt; {
-            System.out.println(&quot;I love u--&gt;&quot; + a);
-        };
-
-        //Simplification 3: braces (Only single line)
-        love = a -&gt; System.out.println(&quot;I love u--&gt;&quot; + a);
-    }
-}
-</code></pre>
-<h1 id="3-static-proxy">3. Static proxy</h1>
-<ul>
-<li>Actual object and proxy object must implement same interface.</li>
-<li>The proxy object proxies the real object.</li>
-</ul>
-<pre><code>public class StaticProxy{
-
-    public static void main(String[] args){
-
-        WorkingCompany workingCompany = new WorkingCompany(new You());
-        workingCompany.HappyWork();
-}
-
-}
-
-interface Work{
-    void HappyWork();
-}
-
-// Actual object works.
-class You implements Work{
-
-    @Override
-    public void HappyWork(){
-        System.out.println(&quot;You are working!&quot;);
-    }
-}
-
-// Proxy helps you work.
-class WorkingCompany implements Work{
-    private Work target;
-
-    public WorkingCompany(Work target){
-        this.target = target;
-    }
-
-    @Override
-    public void HappyWork(){
-        before();
-        this.target.HappyWork();  // This is actual opbject.
-        after();
-    }
-
-    private void after(){
-        System.out.println(&quot;Learned skill.&quot;);
-    }
-
-    private void before(){
-        System.out.println(&quot;Get paid.&quot;);
-    }
-}
-</code></pre>
-<h2 id="advantages">Advantages:</h2>
-<ul>
-<li>Proxy object can achieve things actual object can't do.</li>
-<li>Actual object can focus on doing its own thing.</li>
-</ul>
-<h1 id="4-static-proxy-and-thread">4. Static proxy and Thread</h1>
-<p>Thread class implements Runnable interface:</p>
-<pre><code>public class Thread implements Runnable {
-    /* Make sure registerNatives is the first thing &lt;clinit&gt; does. */
-    private static native void registerNatives();
-    static {
-        registerNatives();
-    }
-</code></pre>
-<p>Therefore, the thread of execution can be replaced from:</p>
-<pre><code>new Thread(new Runnable(){
-    @Override
-    public void run(){
-        System.out.println(&quot;Thread is running.&quot;)
-    }
-}).start;
-</code></pre>
-<p>into:</p>
-<pre><code>new Thread(() -&gt; System.out.println(&quot;Thread is running.&quot;);).start();
-</code></pre>
-<p>---Thread class is actually a proxy, the real object is the anonymous inner class.---</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Java.Thread]]></title>
-        <id>https://XinyuWang-Isak.github.io/javathread1/</id>
-        <link href="https://XinyuWang-Isak.github.io/javathread1/">
-        </link>
-        <updated>2021-07-15T21:49:41.000Z</updated>
-        <content type="html"><![CDATA[<ul>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Java.Thread</h2>
+            <div class="post-date">2021-07-16</div>
+            
+            <div class="post-content" v-pre>
+              <ul>
 <li><a href="#1-thread-runnable-callable">1. Thread, Runnable, Callable</a>
 <ul>
 <li><a href="#11-declare-a-class-as-a-sub-class-of-thread">1.1 Declare a class as a sub class of Thread</a></li>
@@ -1679,6 +1194,37 @@ It will affect the effiency when declare a large method as synchronized.</p>
 <li>Do not have to indicate sychronized monitor in sychronized method due to the sychronized monitor of sychronized method is this which the object itself or class.</li>
 <li></li>
 </ul>
-]]></content>
-    </entry>
-</feed>
+
+            </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
