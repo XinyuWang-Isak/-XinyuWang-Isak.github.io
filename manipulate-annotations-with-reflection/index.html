@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Manipulate annotations with reflection | Isak&#39;s Study Life</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://XinyuWang-Isak.github.io/favicon.ico?v=1627021306401">
+<link rel="stylesheet" href="https://XinyuWang-Isak.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="ORM
+what is ORM:
+Object relationship Mapping
+Class is corresponded to table structure
+Field is corresponded to collum
+Ob..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://XinyuWang-Isak.github.io">
+        <img src="https://XinyuWang-Isak.github.io/images/avatar.png?v=1627021306401" class="site-logo">
+        <h1 class="site-title">Isak&#39;s Study Life</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            Prime page
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            Draft
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            Labels
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Be a better person than yesterday.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://XinyuWang-Isak.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Manipulate annotations with reflection</h2>
+            <div class="post-date">2021-07-23</div>
+            
+            <div class="post-content" v-pre>
+              <h1 id="orm">ORM</h1>
+<p>what is ORM:<br>
+Object relationship Mapping</p>
+<p>Class is corresponded to table structure<br>
+Field is corresponded to collum<br>
+Object is corresponded  to entity</p>
+<h1 id="1-get-annotation">1. Get annotation</h1>
+<pre><code>import java.lang.annotation.*;
+
+//Use reflection to manipulate annotations
+public class PracticeAnnotation {
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class c1 = Class.forName(&quot;com.isak.reflection.Student&quot;);
+
+        //Get annotation through reflection
+        Annotation[] annotations = c1.getAnnotations();
+        for (Annotation annotation : annotations) {
+            System.out.println(annotation);
+        }
+    }
+
+}
+
+@TableTest(&quot;db_student&quot;)
+class Student{
+    @FieldTest(columnName = &quot;db_id&quot;, type = &quot;int&quot;, length = 10)
+    private int id;
+    @FieldTest(columnName = &quot;db_name&quot;, type = &quot;varchar&quot;, length = 10)
+    private String name;
+    @FieldTest(columnName = &quot;db_age&quot;, type = &quot;int&quot;, length = 2)
+    private int age;
+
+    public Student(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+    public Student() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getDob() {
+        return age;
+    }
+
+    public void setDob(int age) {
+        this.age = age;
+    }
+}
+
+
+//The annotation of class name
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@interface TableTest{
+    String value();
+}
+
+//Annotations of fields
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@interface FieldTest{
+    String columnName();
+    String type();
+    int length();
+
+}
+</code></pre>
+<p>Execution result:</p>
+<pre><code>@com.isak.reflection.TableTest(&quot;db_student&quot;)
+</code></pre>
+<h1 id="2get-the-value-of-annotation">2.Get the value of annotation</h1>
+<pre><code>//Get the annotation class and convert it into annotation type
+TableTest tableTest = (TableTest) c1.getAnnotation(TableTest.class);
+//Get the value of it.
+String value = tableTest.value();
+System.out.println(value);
+</code></pre>
+<p>Execution result:</p>
+<pre><code>db_student
+</code></pre>
+<h1 id="3-get-the-specified-annotation">3.  Get the specified annotation</h1>
+<pre><code>Field field = c1.getDeclaredField(&quot;name&quot;);
+FieldTest fieldTest = field.getAnnotation(FieldTest.class);
+System.out.println(fieldTest.columnName());
+System.out.println(fieldTest.type());
+System.out.println(fieldTest.length());
+</code></pre>
+<p>Execution result:</p>
+<pre><code>db_name
+varchar
+10
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://XinyuWang-Isak.github.io/javareflection/">
+                  <h3 class="post-title">
+                    Use setAccessible() to improve the effciency of reflection 
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

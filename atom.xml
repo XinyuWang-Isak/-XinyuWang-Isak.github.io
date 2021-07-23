@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://XinyuWang-Isak.github.io</id>
     <title>Isak&apos;s Study Life</title>
-    <updated>2021-07-21T14:35:43.363Z</updated>
+    <updated>2021-07-23T06:22:02.476Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://XinyuWang-Isak.github.io"/>
     <link rel="self" href="https://XinyuWang-Isak.github.io/atom.xml"/>
@@ -10,6 +10,199 @@
     <logo>https://XinyuWang-Isak.github.io/images/avatar.png</logo>
     <icon>https://XinyuWang-Isak.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Isak&apos;s Study Life</rights>
+    <entry>
+        <title type="html"><![CDATA[Manipulate annotations with reflection]]></title>
+        <id>https://XinyuWang-Isak.github.io/manipulate-annotations-with-reflection/</id>
+        <link href="https://XinyuWang-Isak.github.io/manipulate-annotations-with-reflection/">
+        </link>
+        <updated>2021-07-23T07:06:41.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="orm">ORM</h1>
+<p>what is ORM:<br>
+Object relationship Mapping</p>
+<p>Class is corresponded to table structure<br>
+Field is corresponded to collum<br>
+Object is corresponded  to entity</p>
+<h1 id="1-get-annotation">1. Get annotation</h1>
+<pre><code>import java.lang.annotation.*;
+
+//Use reflection to manipulate annotations
+public class PracticeAnnotation {
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class c1 = Class.forName(&quot;com.isak.reflection.Student&quot;);
+
+        //Get annotation through reflection
+        Annotation[] annotations = c1.getAnnotations();
+        for (Annotation annotation : annotations) {
+            System.out.println(annotation);
+        }
+    }
+
+}
+
+@TableTest(&quot;db_student&quot;)
+class Student{
+    @FieldTest(columnName = &quot;db_id&quot;, type = &quot;int&quot;, length = 10)
+    private int id;
+    @FieldTest(columnName = &quot;db_name&quot;, type = &quot;varchar&quot;, length = 10)
+    private String name;
+    @FieldTest(columnName = &quot;db_age&quot;, type = &quot;int&quot;, length = 2)
+    private int age;
+
+    public Student(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+    public Student() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getDob() {
+        return age;
+    }
+
+    public void setDob(int age) {
+        this.age = age;
+    }
+}
+
+
+//The annotation of class name
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@interface TableTest{
+    String value();
+}
+
+//Annotations of fields
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@interface FieldTest{
+    String columnName();
+    String type();
+    int length();
+
+}
+</code></pre>
+<p>Execution result:</p>
+<pre><code>@com.isak.reflection.TableTest(&quot;db_student&quot;)
+</code></pre>
+<h1 id="2get-the-value-of-annotation">2.Get the value of annotation</h1>
+<pre><code>//Get the annotation class and convert it into annotation type
+TableTest tableTest = (TableTest) c1.getAnnotation(TableTest.class);
+//Get the value of it.
+String value = tableTest.value();
+System.out.println(value);
+</code></pre>
+<p>Execution result:</p>
+<pre><code>db_student
+</code></pre>
+<h1 id="3-get-the-specified-annotation">3.  Get the specified annotation</h1>
+<pre><code>Field field = c1.getDeclaredField(&quot;name&quot;);
+FieldTest fieldTest = field.getAnnotation(FieldTest.class);
+System.out.println(fieldTest.columnName());
+System.out.println(fieldTest.type());
+System.out.println(fieldTest.length());
+</code></pre>
+<p>Execution result:</p>
+<pre><code>db_name
+varchar
+10
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use setAccessible() to improve the effciency of reflection ]]></title>
+        <id>https://XinyuWang-Isak.github.io/javareflection/</id>
+        <link href="https://XinyuWang-Isak.github.io/javareflection/">
+        </link>
+        <updated>2021-07-22T09:20:42.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Method and Field, Construtor objects all have setAccessible() method.</li>
+<li>setAccessible is a switch to change accessbility of security check. (identifier)</li>
+<li>Set the parameter as true to cancel the Java language accessbility check.</li>
+<li><em>1.  Improve the reflection effciency. If there are reflections in codes and need to be called frequently, please set parameter as true.</em></li>
+<li><em>2.  Can access the attributes that identifier is private.</em></li>
+</ul>
+<p>Comparison of execute speed.</p>
+<pre><code>//Normal way to call
+    public static void testNormal(){
+        User user = new User();
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i &lt; 100000000; i++) {
+            user.getId();
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;Normal way to execute 1 billion times: &quot;
+                + (endTime-startTime) + &quot;ms.&quot;);
+    }
+</code></pre>
+<pre><code>    //Use reflection
+    public static void testReflection() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+
+        User user = new User();
+        Class c1 = user.getClass();
+        Method getId = c1.getDeclaredMethod(&quot;getId&quot;, null);
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i &lt; 100000000; i++) {
+            getId.invoke(user, null);
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;Reflection way to execute 1 billion times: &quot;
+                + (endTime-startTime) + &quot;ms.&quot;);
+
+    }
+</code></pre>
+<pre><code>      //Turn off detection
+    public static void testSetAccessible() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+
+        User user = new User();
+        Class c1 = user.getClass();
+
+        Method getId = c1.getDeclaredMethod(&quot;getId&quot;, null);
+        getId.setAccessible(true);
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i &lt; 100000000; i++) {
+            getId.invoke(user, null);
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;Turn off detection to execute 1 billion times: &quot;
+                + (endTime-startTime) + &quot;ms.&quot;);
+
+    }
+</code></pre>
+<p>Execution result of three methods:</p>
+<pre><code>Normal way to execute 1 billion times: 8ms.
+Reflection way to execute 1 billion times: 712ms.
+Turn off detection to execute 1 billion times: 314ms.
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[STATUS vs STATE in programming]]></title>
         <id>https://XinyuWang-Isak.github.io/distinguish-status-and-state-in-programming/</id>

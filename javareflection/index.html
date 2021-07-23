@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Use setAccessible() to improve the effciency of reflection  | Isak&#39;s Study Life</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://XinyuWang-Isak.github.io/favicon.ico?v=1627021306401">
+<link rel="stylesheet" href="https://XinyuWang-Isak.github.io/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+Method and Field, Construtor objects all have setAccessible() method.
+setAccessible is a switch to change accessbility ..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://XinyuWang-Isak.github.io">
+        <img src="https://XinyuWang-Isak.github.io/images/avatar.png?v=1627021306401" class="site-logo">
+        <h1 class="site-title">Isak&#39;s Study Life</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            Prime page
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            Draft
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            Labels
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            About
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Be a better person than yesterday.
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://XinyuWang-Isak.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Use setAccessible() to improve the effciency of reflection </h2>
+            <div class="post-date">2021-07-22</div>
+            
+            <div class="post-content" v-pre>
+              <ul>
+<li>Method and Field, Construtor objects all have setAccessible() method.</li>
+<li>setAccessible is a switch to change accessbility of security check. (identifier)</li>
+<li>Set the parameter as true to cancel the Java language accessbility check.</li>
+<li><em>1.  Improve the reflection effciency. If there are reflections in codes and need to be called frequently, please set parameter as true.</em></li>
+<li><em>2.  Can access the attributes that identifier is private.</em></li>
+</ul>
+<p>Comparison of execute speed.</p>
+<pre><code>//Normal way to call
+    public static void testNormal(){
+        User user = new User();
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i &lt; 100000000; i++) {
+            user.getId();
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;Normal way to execute 1 billion times: &quot;
+                + (endTime-startTime) + &quot;ms.&quot;);
+    }
+</code></pre>
+<pre><code>    //Use reflection
+    public static void testReflection() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+
+        User user = new User();
+        Class c1 = user.getClass();
+        Method getId = c1.getDeclaredMethod(&quot;getId&quot;, null);
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i &lt; 100000000; i++) {
+            getId.invoke(user, null);
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;Reflection way to execute 1 billion times: &quot;
+                + (endTime-startTime) + &quot;ms.&quot;);
+
+    }
+</code></pre>
+<pre><code>      //Turn off detection
+    public static void testSetAccessible() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+
+        User user = new User();
+        Class c1 = user.getClass();
+
+        Method getId = c1.getDeclaredMethod(&quot;getId&quot;, null);
+        getId.setAccessible(true);
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i &lt; 100000000; i++) {
+            getId.invoke(user, null);
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;Turn off detection to execute 1 billion times: &quot;
+                + (endTime-startTime) + &quot;ms.&quot;);
+
+    }
+</code></pre>
+<p>Execution result of three methods:</p>
+<pre><code>Normal way to execute 1 billion times: 8ms.
+Reflection way to execute 1 billion times: 712ms.
+Turn off detection to execute 1 billion times: 314ms.
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://XinyuWang-Isak.github.io/distinguish-status-and-state-in-programming/">
+                  <h3 class="post-title">
+                    STATUS vs STATE in programming
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
