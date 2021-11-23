@@ -1,54 +1,1899 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://XinyuWang-Isak.github.io</id>
-    <title>Gridea</title>
-    <updated>2021-11-23T03:22:46.245Z</updated>
+    <title>Isak&apos;s Study Life</title>
+    <updated>2021-11-23T03:23:15.782Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://XinyuWang-Isak.github.io"/>
     <link rel="self" href="https://XinyuWang-Isak.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>Be a better person than yesterday.</subtitle>
     <logo>https://XinyuWang-Isak.github.io/images/avatar.png</logo>
     <icon>https://XinyuWang-Isak.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Gridea</rights>
+    <rights>All rights reserved 2021, Isak&apos;s Study Life</rights>
     <entry>
-        <title type="html"><![CDATA[Test]]></title>
-        <id>https://XinyuWang-Isak.github.io/post/test/</id>
-        <link href="https://XinyuWang-Isak.github.io/post/test/">
+        <title type="html"><![CDATA[HTML5 study notes]]></title>
+        <id>https://XinyuWang-Isak.github.io/html5-study-notes/</id>
+        <link href="https://XinyuWang-Isak.github.io/html5-study-notes/">
         </link>
-        <updated>2021-11-23T06:10:24.000Z</updated>
-        <content type="html"><![CDATA[<p>Test gridea in new device</p>
+        <updated>2021-11-18T08:17:09.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="1-adavantage">1. Adavantage</h1>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://XinyuWang-Isak.github.io/post/hello-gridea/</id>
-        <link href="https://XinyuWang-Isak.github.io/post/hello-gridea/">
+        <title type="html"><![CDATA[Manipulate annotations with reflection]]></title>
+        <id>https://XinyuWang-Isak.github.io/manipulate-annotations-with-reflection/</id>
+        <link href="https://XinyuWang-Isak.github.io/manipulate-annotations-with-reflection/">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+        <updated>2021-07-23T07:06:41.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="orm">ORM</h1>
+<p>what is ORM:<br>
+Object relationship Mapping</p>
+<p>Class is corresponded to table structure<br>
+Field is corresponded to collum<br>
+Object is corresponded  to entity</p>
+<h1 id="1-get-annotation">1. Get annotation</h1>
+<pre><code>import java.lang.annotation.*;
+
+//Use reflection to manipulate annotations
+public class PracticeAnnotation {
+    public static void main(String[] args) throws ClassNotFoundException {
+        Class c1 = Class.forName(&quot;com.isak.reflection.Student&quot;);
+
+        //Get annotation through reflection
+        Annotation[] annotations = c1.getAnnotations();
+        for (Annotation annotation : annotations) {
+            System.out.println(annotation);
+        }
+    }
+
+}
+
+@TableTest(&quot;db_student&quot;)
+class Student{
+    @FieldTest(columnName = &quot;db_id&quot;, type = &quot;int&quot;, length = 10)
+    private int id;
+    @FieldTest(columnName = &quot;db_name&quot;, type = &quot;varchar&quot;, length = 10)
+    private String name;
+    @FieldTest(columnName = &quot;db_age&quot;, type = &quot;int&quot;, length = 2)
+    private int age;
+
+    public Student(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+    public Student() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getDob() {
+        return age;
+    }
+
+    public void setDob(int age) {
+        this.age = age;
+    }
+}
+
+
+//The annotation of class name
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@interface TableTest{
+    String value();
+}
+
+//Annotations of fields
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@interface FieldTest{
+    String columnName();
+    String type();
+    int length();
+
+}
+</code></pre>
+<p>Execution result:</p>
+<pre><code>@com.isak.reflection.TableTest(&quot;db_student&quot;)
+</code></pre>
+<h1 id="2get-the-value-of-annotation">2.Get the value of annotation</h1>
+<pre><code>//Get the annotation class and convert it into annotation type
+TableTest tableTest = (TableTest) c1.getAnnotation(TableTest.class);
+//Get the value of it.
+String value = tableTest.value();
+System.out.println(value);
+</code></pre>
+<p>Execution result:</p>
+<pre><code>db_student
+</code></pre>
+<h1 id="3-get-the-specified-annotation">3.  Get the specified annotation</h1>
+<pre><code>Field field = c1.getDeclaredField(&quot;name&quot;);
+FieldTest fieldTest = field.getAnnotation(FieldTest.class);
+System.out.println(fieldTest.columnName());
+System.out.println(fieldTest.type());
+System.out.println(fieldTest.length());
+</code></pre>
+<p>Execution result:</p>
+<pre><code>db_name
+varchar
+10
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Use setAccessible() to improve the effciency of reflection ]]></title>
+        <id>https://XinyuWang-Isak.github.io/javareflection/</id>
+        <link href="https://XinyuWang-Isak.github.io/javareflection/">
+        </link>
+        <updated>2021-07-22T09:20:42.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Method and Field, Construtor objects all have setAccessible() method.</li>
+<li>setAccessible is a switch to change accessbility of security check. (identifier)</li>
+<li>Set the parameter as true to cancel the Java language accessbility check.</li>
+<li><em>1.  Improve the reflection effciency. If there are reflections in codes and need to be called frequently, please set parameter as true.</em></li>
+<li><em>2.  Can access the attributes that identifier is private.</em></li>
+</ul>
+<p>Comparison of execute speed.</p>
+<pre><code>//Normal way to call
+    public static void testNormal(){
+        User user = new User();
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i &lt; 100000000; i++) {
+            user.getId();
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;Normal way to execute 1 billion times: &quot;
+                + (endTime-startTime) + &quot;ms.&quot;);
+    }
+</code></pre>
+<pre><code>    //Use reflection
+    public static void testReflection() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+
+        User user = new User();
+        Class c1 = user.getClass();
+        Method getId = c1.getDeclaredMethod(&quot;getId&quot;, null);
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i &lt; 100000000; i++) {
+            getId.invoke(user, null);
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;Reflection way to execute 1 billion times: &quot;
+                + (endTime-startTime) + &quot;ms.&quot;);
+
+    }
+</code></pre>
+<pre><code>      //Turn off detection
+    public static void testSetAccessible() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+
+        User user = new User();
+        Class c1 = user.getClass();
+
+        Method getId = c1.getDeclaredMethod(&quot;getId&quot;, null);
+        getId.setAccessible(true);
+
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i &lt; 100000000; i++) {
+            getId.invoke(user, null);
+        }
+
+        long endTime = System.currentTimeMillis();
+        System.out.println(&quot;Turn off detection to execute 1 billion times: &quot;
+                + (endTime-startTime) + &quot;ms.&quot;);
+
+    }
+</code></pre>
+<p>Execution result of three methods:</p>
+<pre><code>Normal way to execute 1 billion times: 8ms.
+Reflection way to execute 1 billion times: 712ms.
+Turn off detection to execute 1 billion times: 314ms.
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[STATUS vs STATE in programming]]></title>
+        <id>https://XinyuWang-Isak.github.io/distinguish-status-and-state-in-programming/</id>
+        <link href="https://XinyuWang-Isak.github.io/distinguish-status-and-state-in-programming/">
+        </link>
+        <updated>2021-07-19T13:22:17.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<p>It depends on the context</p>
+<p>State generally refers to the entire state of an entity - all its values and relationships at a particular point in time (usually, current)</p>
+<p>Status is more of a time-point, say, where something is at in a process or workflow - is it dirty (therefore requiring saving), is it complete, is it pending input, etc</p>
+<p><em>Answer by Luke Schafer.</em><br>
+<em>Refer to https://stackoverflow.com/questions/1162816/naming-conventions-state-versus-status</em></p>
+<hr>
+<p>I like this question. The following is from my head but I think it fits quite well.</p>
+<ul>
+<li>
+<p>status is used to describe an outcome of an operation (e.g. success/fail).</p>
+</li>
+<li>
+<p>state is used to describe a stage in a process (e.g. pending/dispatched).</p>
+</li>
+</ul>
+<p>I also like this definition:</p>
+<ul>
+<li>status is a final (resulting) state.</li>
+</ul>
+<p>It is quite clear when applied to programming. Much less clear when you apply it to natural language. Let's take the examples from the english thread and see if it holds with the most upvoted answer.</p>
+<p><em>&quot;What is the current status of this project?&quot;</em><br>
+The answer should be<br>
+<em>&quot;In testing.&quot;</em></p>
+<p>Well, this might seem to contradict my definitions at a first look but we must realize the context. Probably some supervisor is asking his team about the project and how far they have reached. The point is that the supervisor is interested in the outcome up to now. The fact that there will be something after is just put away because it is not the point of the question.</p>
+<p>*&quot;What is the current state of this project?&quot; *<br>
+The answer should be</p>
+<ul>
+<li>On hold for financial analysis.&quot;*</li>
+</ul>
+<p>So I think that this very nicely demonstrates an essence of a state.<br>
+<em>&quot;On hold for financial analysis.&quot;</em> clearly focuses on the fact that the current situation is a part of some encompassing process and even suggests the next state.</p>
+<p><em>Answer by clime.</em><br>
+<em>Refer to https://softwareengineering.stackexchange.com/questions/219351/state-or-status-when-should-a-variable-name-contain-the-word-state-and-w</em></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Java.Thread]]></title>
+        <id>https://XinyuWang-Isak.github.io/javathread1/</id>
+        <link href="https://XinyuWang-Isak.github.io/javathread1/">
+        </link>
+        <updated>2021-07-15T23:49:41.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><a href="#1-thread-runnable-callable">1. Thread, Runnable, Callable</a>
+<ul>
+<li><a href="#11-declare-a-class-as-a-sub-class-of-thread">1.1 Declare a class as a sub class of Thread</a></li>
+<li><a href="#12-declare-a-class-as-an-implementation-class-of-the-runnable-interface">1.2 Declare a class as an implementation class of the Runnable interface.</a></li>
+<li><a href="#13-summary">1.3 Summary</a>
+<ul>
+<li><a href="#a--tickets-program">A  tickets program.</a></li>
+<li><a href="#the-hare-and-the-tortoise">The Hare and the Tortoise</a></li>
+</ul>
+</li>
+<li><a href="#14--implement-callable-interface">1.4  Implement Callable interface.</a></li>
+<li><a href="#advantages-of-implementing-callable-interface">Advantages of implementing Callable interface:</a></li>
+</ul>
+</li>
+<li><a href="#2-lambda-expression">2. Lambda expression.</a>
+<ul>
+<li><a href="#21-advantage">2.1 Advantage</a></li>
+<li><a href="#22-fuctional-interface">2.2 Fuctional Interface</a></li>
+<li><a href="#23-derivation">2.3 Derivation</a></li>
+<li><a href="#24-simplification">2.4 Simplification</a></li>
+</ul>
+</li>
+<li><a href="#3-static-proxy">3. Static proxy</a>
+<ul>
+<li><a href="#advantages">Advantages:</a></li>
+</ul>
+</li>
+<li><a href="#4-static-proxy-and-thread">4. Static proxy and Thread</a></li>
+<li><a href="#5-thread-states">5. Thread states</a>
+<ul>
+<li><a href="#51-thread-methods">5.1 Thread methods</a></li>
+<li><a href="#52-thread-stop">5.2 Thread stop</a></li>
+<li><a href="#53-thread-sleep">5.3 Thread sleep</a></li>
+<li><a href="#54-thread-yield">5.4 Thread yield</a></li>
+<li><a href="#55-thread-join">5.5 Thread join</a></li>
+<li><a href="#56-observe-thread-states">5.6 Observe thread states</a></li>
+<li><a href="#57-thread-priority">5.7 Thread priority</a></li>
+<li><a href="#58-daemon-thread">5.8 Daemon thread</a></li>
+</ul>
+</li>
+<li><a href="#6-thread-synchronization">6. Thread synchronization</a>
+<ul>
+<li><a href="#61-concurrent">6.1 Concurrent</a></li>
+<li><a href="#61-unsafe-thread">6.1 Unsafe Thread</a>
+<ul>
+<li><a href="#611-unsafe-ticket-machine">6.1.1 Unsafe Ticket Machine</a></li>
+<li><a href="#612-unsafe-bank">6.1.2 Unsafe Bank</a></li>
+<li><a href="#613-unsafe-list">6.1.3 Unsafe List</a></li>
+</ul>
+</li>
+<li><a href="#63-synchronized">6.3 Synchronized</a>
+<ul>
+<li><a href="#631-synchronized-method">6.3.1 Synchronized method</a></li>
+<li><a href="#632-synchronized-block">6.3.2 Synchronized block</a></li>
+</ul>
+</li>
+<li><a href="#64-deadlock">6.4 Deadlock</a></li>
+</ul>
+</li>
+<li><a href="#7-lock">7. Lock</a>
+<ul>
+<li><a href="#71-the-conparison-between-synchronized-and-lock">7.1 The conparison between synchronized and Lock</a></li>
+</ul>
+</li>
+<li><a href="#8-threaded-collaboration">8. Threaded collaboration</a>
+<ul>
+<li><a href="#81-java-communication-methods">8.1 Java communication methods:</a></li>
+<li><a href="#82-monitor-method">8.2 Monitor method</a></li>
+<li><a href="#83-solution2-use-flag">8.3 Solution2: Use flag.</a></li>
+</ul>
+</li>
+<li><a href="#9-thread-pool">9. Thread pool</a>
+<ul>
+<li><a href="#91-execute-runnable-execute">9.1 Execute Runnable: execute()</a></li>
+<li><a href="#92-execute-callable">9.2 Execute Callable</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="1-thread-runnable-callable">1. Thread, Runnable, Callable</h1>
+<h2 id="11-declare-a-class-as-a-sub-class-of-thread">1.1 Declare a class as a sub class of Thread</h2>
+<p>This sub class should override run() method.</p>
+<pre><code>// Create Thread: Extend Class Thread, override run() method, call start to open thread.
+public class ThreadTest extends Thread{
+    @Override
+    public void run(){
+        for (int i = 1; i &lt; 200; i++){
+            System.out.println(&quot;Learning &quot;+i);
+        }
+    }
+
+    public static void main(String[] args){
+        //main Thread.
+
+        //Create a thread object.
+        ThreadTest threadTest = new ThreadTest();
+
+        //Call start()to open thread.
+        threadTest.start();
+
+        for (int i = 1; i &lt; 200; i++){
+            System.out.println(&quot;Coding &quot;+i);
+        }
+    }
+}
+</code></pre>
+<h2 id="12-declare-a-class-as-an-implementation-class-of-the-runnable-interface">1.2 Declare a class as an implementation class of the Runnable interface.</h2>
+<p>That class then implements the run method. An instance of the class can then be allocated, passed as an argument when creating Thread, and started.</p>
+<pre><code>//Implement runnable interface, override run() method,
+//initialise and call the start() method.
+public class ThreadTest3 implements Runnable{
+
+    @Override
+    public void run(){
+        for (int i = 0; i &lt; 200; i++){
+            System.out.println(&quot;Learning: &quot; + i);
+        }
+    }
+
+    public static void main(String[] args){
+        //Create the implement class object of runnable interface.
+        ThreadTest3 testThread3 = new ThreadTest3();
+        //Create the Thread object, start the execution by the object.
+        new Thread(testThread3).start();
+
+        for (int i = 0; i &lt; 200; i++){
+            System.out.println(&quot;Coding: &quot; + i);
+        }
+
+    }
+}
+</code></pre>
+<h2 id="13-summary">1.3 Summary</h2>
+<p>Two ways to create a new thread of execution</p>
+<p>(1) Extend Class</p>
+<ul>
+<li>Sub class extends Thread to have ability of multiple threads.</li>
+<li>Start thread: SubclassObject.start();</li>
+<li>Not recommended: The limitation of Java single inheritance.</li>
+</ul>
+<p>(2) Implement  interface</p>
+<ul>
+<li>Declare a class implements the Runnable interface.</li>
+<li>Start thread: Pass an object of this ImplementedClass as a parameter into Thread Class's constructor.<br>
+ThreadTest threadTest = new ThreadTest();<br>
+Thread thread = new Thread(threadTest);<br>
+thread.start();</li>
+<li>Recommended: Avoid the limitation of Java single inheritance. Flexible and convinent for an object to be used by multiple threads.</li>
+</ul>
+<h3 id="a-tickets-program">A  tickets program.</h3>
+<pre><code>public class ThreadTest4 implements Runnable{
+    private int ticketNums = 10;
+
+    @Override
+    public void run(){
+        while (ticketNums &gt; 0)
+        {
+            //Simulation of time delay.
+            try{
+                Thread.sleep(100);
+            } catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName() 
+            + &quot; get the &quot; + ticketNums-- + &quot; ticket&quot;);
+        }
+    }
+
+    public static void main(String[] args){
+        ThreadTest4 ticket = new ThreadTest4();
+
+        new Thread(ticket, &quot;John&quot;).start();
+        new Thread(ticket, &quot;Ash&quot;).start();
+        new Thread(ticket, &quot;Lisa&quot;).start();
+
+    }
+}
+</code></pre>
+<p>This code's execution result is:</p>
+<pre><code>Ash get the 10 ticket
+Lisa get the 9 ticket
+John get the 10 ticket
+Lisa get the 8 ticket
+John get the 7 ticket
+Ash get the 6 ticket
+Lisa get the 5 ticket
+John get the 4 ticket
+Ash get the 3 ticket
+John get the 2 ticket
+Lisa get the 1 ticket
+Ash get the 0 ticket
+Ash get the -1 ticket
+</code></pre>
+<p>Issue found:<br>
+The threads are unsafe and the data may be chaos when same resource operated by multiple threads.</p>
+<pre><code>Ash get the 10 ticket
+John get the 10 ticket
+</code></pre>
+<p>and</p>
+<pre><code>Ash get the -1 ticket
+</code></pre>
+<p>The threads are unsafe and the data may be chaos when same resource operated by multiple threads.</p>
+<h3 id="the-hare-and-the-tortoise">The Hare and the Tortoise</h3>
+<pre><code>package com.isak.demo;
+
+//Simulate the Hare and the Tortoise race.
+public class Race implements Runnable{
+    private static String winner;
+    @Override
+    public void run(){
+        for (int i = 0; i &lt;= 100; i++){
+            //Simulate the hare has a break
+            if (Thread.currentThread().getName().equals(&quot;Hare&quot;) &amp;&amp; i%10 == 0){
+                try{
+                    Thread.sleep(10);
+                } catch (InterruptedException e){
+                    e.printStackTrace();
+                }
+            }
+
+            //Determine if the game is over;
+            boolean flag = gameOver(i);
+            if (flag){
+                break;
+            }
+            System.out.println(Thread.currentThread().getName() + 
+            &quot; has run &quot; + i + &quot; steps.&quot;);
+        }
+    }
+
+    public boolean gameOver(int steps){
+        if (winner != null{
+            return true;
+        }{
+            if (steps == 100){
+                winner = Thread.currentThread().getName();
+                System.out.println(&quot;\nWinner is &quot; + winner + &quot;.&quot;);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args){
+        Race race = new Race();
+
+        new Thread(race, &quot;Hare&quot;).start();
+        new Thread(race, &quot;Tortoise&quot;).start();
+    }
+}
+</code></pre>
+<p>Execution result:</p>
+<pre><code>Tortoise has run 0 steps.
+Hare has run 0 steps.
+Tortoise has run 1 steps.
+Hare has run 1 steps.
+Tortoise has run 2 steps.
+...
+Tortoise has run 94 steps.
+Tortoise has run 95 steps.
+Tortoise has run 96 steps.
+Tortoise has run 97 steps.
+Tortoise has run 98 steps.
+Tortoise has run 99 steps.
+
+Winner is Tortoise.
+</code></pre>
+<h2 id="14-implement-callable-interface">1.4  Implement Callable interface.</h2>
+<ul>
+<li>
+<ol>
+<li>Implement Callable interface, return value is needed.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Override call() method, Exception need to be thrown.</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Create target object.</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>Create ExecutorService.</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>Submit and execute.</li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li>Acquire result.</li>
+</ol>
+</li>
+<li>
+<ol start="7">
+<li>Shutdown service.</li>
+</ol>
+</li>
+</ul>
+<pre><code>import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.concurrent.*;
+
+//Implement Callable interface to create threads of execution to download images
+public class TestCallable implements Callable&lt;Boolean&gt;{
+    private String url;
+    private String name;
+
+    public TestCallable(String url, String name{
+        this.url = url;
+        this.name = name;
+    }
+
+    @Override
+    public Boolean call(){
+        WebDownloader webDownloader = new WebDownloader();
+        webDownloader.downloader(url, name);
+        System.out.println(name + &quot; downloaded.&quot;);
+        return true;
+    }
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException{
+        TestCallable t1 = new TestCallable(&quot;url1&quot;, &quot;1.jpg&quot;);
+        TestCallable t2 = new TestCallable(&quot;url2&quot;, &quot;2.jpg&quot;);
+        TestCallable t3 = new TestCallable(&quot;url3&quot;, &quot;3.jpg&quot;);
+
+        //Create ExecutorService.
+        ExecutorService service = Executors.newFixedThreadPool(3);
+
+        //Submit and execute.
+        Future&lt;Boolean&gt; r1 = service.submit(t1);
+        Future&lt;Boolean&gt; r2 = service.submit(t2);
+        Future&lt;Boolean&gt; r3 = service.submit(t3);
+
+        //Acquire result.
+
+        boolean result1 = r1.get();
+        boolean result2 = r2.get();
+        boolean result3 = r3.get();
+
+        System.out.println(result1);
+        System.out.println(result2);
+        System.out.println(result3);
+
+        //Shutdown the service.
+        service.shutdown();
+    }
+
+    class WebDownloader{
+        public void downloader(String url, String name){
+            try{
+                FileUtils.copyURLToFile(new URL(url), new File(name));
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+}
+</code></pre>
+<h2 id="advantages-of-implementing-callable-interface">Advantages of implementing Callable interface:</h2>
+<ul>
+<li>Can define return value.</li>
+<li>Can throw exceptions.</li>
+</ul>
+<h1 id="2-lambda-expression">2. Lambda expression.</h1>
+<p>λ is the 11th in Greek alphabet. Its essence belongs to the concept of functional programmin.</p>
+<h2 id="21-advantage">2.1 Advantage</h2>
+<ul>
+<li>Avoid excessive internal anonymous classes.</li>
+<li>Simplify codes and discard and the meaningless part.</li>
+</ul>
+<pre><code>new Thread( ()-&gt;System.out.println(&quot;Lambda&quot;).start;
+</code></pre>
+<h2 id="22-fuctional-interface">2.2 Fuctional Interface</h2>
+<p>Fuctional interface is the key to learn lambda expression.</p>
+<p>Definition:</p>
+<ul>
+<li>It's a fuctional interface if there is only one abstract method in the interface.</li>
+</ul>
+<pre><code>    public interface Runnable{
+        public abstact void run();
+    }
+</code></pre>
+<ul>
+<li>We can create the fuctional interface object through lambda expression.</li>
+</ul>
+<h2 id="23-derivation">2.3 Derivation</h2>
+<pre><code>//The derivation of the lambda expression.
+public class TestLambda1 {
+
+    //3.Static inner class.
+    static class Like2 implements Ilike{
+        @Override
+        public void lambda() {
+            System.out.println(&quot;I like Lambda(Static inner class).&quot;);
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Ilike like = new Like();
+        like.lambda();
+
+        like = new Like2();
+        like.lambda();
+
+        //4.Local inner class.
+        class Like3 implements Ilike{
+            @Override
+            public void lambda() {
+                System.out.println(&quot;I like lambda(Local inner class).&quot;);
+            }
+        }
+
+        like = new Like3();
+        like.lambda();
+
+        //5.Anonymous inner class.
+        //Doesn't have name of class, must rely on interface or super class.
+        like = new Ilike(){
+            @Override
+            public void lambda(){
+                System.out.println(&quot;I like lambda(Anonymous inner class).&quot;);
+            }
+        };
+        like.lambda();
+
+        //6.Simplify with lambda expression.
+        like = () -&gt; {
+            System.out.println(&quot;I like lambda(Anonymous inner class).&quot;);
+        };
+        like.lambda();
+
+    }
+
+}
+
+//1. Declare a functional interface.
+interface Ilike{
+    void lambda();
+}
+
+//2.Implement class.
+class Like implements Ilike{
+    @Override
+    public void lambda() {
+        System.out.println(&quot;I like Lambda.&quot;);
+    }
+}
+
+</code></pre>
+<h2 id="24-simplification">2.4 Simplification</h2>
+<pre><code>interface ILove {
+    void love(int a);
+}
+
+public class TestLambda2 {
+
+    public static void main(String[] args) {
+
+        //Use lambda to simplify.
+        ILove love = (int a) -&gt; {
+            System.out.println(&quot;I love u--&gt;&quot; + a);
+        };
+
+        //Simplification 1: parameter type
+        love = (a) -&gt; {
+            System.out.println(&quot;I love u--&gt;&quot; + a);
+        };
+
+        //Simplification 2: parentheses ((Only single parameter)
+        love = a -&gt; {
+            System.out.println(&quot;I love u--&gt;&quot; + a);
+        };
+
+        //Simplification 3: braces (Only single line)
+        love = a -&gt; System.out.println(&quot;I love u--&gt;&quot; + a);
+    }
+}
+</code></pre>
+<h1 id="3-static-proxy">3. Static proxy</h1>
+<ul>
+<li>Actual object and proxy object must implement same interface.</li>
+<li>The proxy object proxies the real object.</li>
+</ul>
+<pre><code>public class StaticProxy{
+
+    public static void main(String[] args){
+
+        WorkingCompany workingCompany = new WorkingCompany(new You());
+        workingCompany.HappyWork();
+}
+
+}
+
+interface Work{
+    void HappyWork();
+}
+
+// Actual object works.
+class You implements Work{
+
+    @Override
+    public void HappyWork(){
+        System.out.println(&quot;You are working!&quot;);
+    }
+}
+
+// Proxy helps you work.
+class WorkingCompany implements Work{
+    private Work target;
+
+    public WorkingCompany(Work target){
+        this.target = target;
+    }
+
+    @Override
+    public void HappyWork(){
+        before();
+        this.target.HappyWork();  // This is actual opbject.
+        after();
+    }
+
+    private void after(){
+        System.out.println(&quot;Learned skill.&quot;);
+    }
+
+    private void before(){
+        System.out.println(&quot;Get paid.&quot;);
+    }
+}
+</code></pre>
+<h2 id="advantages">Advantages:</h2>
+<ul>
+<li>Proxy object can achieve things actual object can't do.</li>
+<li>Actual object can focus on doing its own thing.</li>
+</ul>
+<h1 id="4-static-proxy-and-thread">4. Static proxy and Thread</h1>
+<p>Thread class implements Runnable interface:</p>
+<pre><code>public class Thread implements Runnable {
+    /* Make sure registerNatives is the first thing &lt;clinit&gt; does. */
+    private static native void registerNatives();
+    static {
+        registerNatives();
+    }
+</code></pre>
+<p>Therefore, the thread of execution can be replaced from:</p>
+<pre><code>new Thread(new Runnable(){
+    @Override
+    public void run(){
+        System.out.println(&quot;Thread is running.&quot;)
+    }
+}).start;
+</code></pre>
+<p>into:</p>
+<pre><code>new Thread(() -&gt; System.out.println(&quot;Thread is running.&quot;);).start();
+</code></pre>
+<p>---Thread class is actually a proxy, the real object is the anonymous inner class.---</p>
+<h1 id="5-thread-states">5. Thread states</h1>
+<pre><code>public static enum Thread.State
+extends Enum&lt;Thread.State&gt;
+</code></pre>
+<p>A thread state. A thread can be in one of the following states:</p>
+<ul>
+<li><strong>NEW</strong><br>
+A thread that has not yet started is in this state.</li>
+<li><strong>RUNNABLE</strong><br>
+A thread executing in the Java virtual machine is in this state.</li>
+<li><strong>BLOCKED</strong><br>
+A thread that is blocked waiting for a monitor lock is in this state.</li>
+<li><strong>WAITING</strong><br>
+A thread that is waiting indefinitely for another thread to perform a particular action is in this state.</li>
+<li><strong>TIMED_WAITING</strong><br>
+A thread that is waiting for another thread to perform an action for up to a specified waiting time is in this state.</li>
+<li><strong>TERMINATED</strong><br>
+A thread that has exited is in this state.<br>
+<em>Once the thread is terminated, it will never be woke up again</em></li>
+</ul>
+<p>A thread can be in only one state at a given point in time. These states are virtual machine states which do not reflect any operating system thread states.</p>
+<h2 id="51-thread-methods">5.1 Thread methods</h2>
+<ul>
+<li>setPriority(int newPriority): Change the priority of thread.</li>
+<li>static void sleep(long millis): Let current running thread sleep after indicated time.</li>
+<li>void join(): Waiting thread termination.</li>
+<li>static void yield(): Pause the current running thread &amp; turn to others.</li>
+<li>void interrupt(): Interrupt thread. <strong>Do not use it!</strong></li>
+<li>boolean isAlive(): Test whether the thread is active.</li>
+</ul>
+<h2 id="52-thread-stop">5.2 Thread stop</h2>
+<ul>
+<li>Suggest threads to stop normally. --&gt; Do not use dead Loop.</li>
+<li>Suggest set a flag.</li>
+<li>Do not use stop() or destroy()..etc no longer used by JDK.</li>
+</ul>
+<pre><code>public class TestStop implements Runnable {
+
+    //1. Set an indicated flag.
+    private boolean flag = true;
+    @Override
+    public void run() {
+        int i = 0;
+        while (flag){
+            System.out.println(&quot;Run...thread&quot; + i++);
+        }
+    }
+
+    //2. Set a public method to reverse the indicate flag and stop the thread.
+    public void stop(){
+        this.flag = false;
+    }
+
+    public static void main(String[] args) {
+        TestStop testStop = new TestStop();
+        new Thread(testStop).start();
+
+        for (int i = 0; i &lt; 100; i++){
+            System.out.println(&quot;Main&quot; + i);
+            if (i==90){
+                //3. Call stop() to terminate thread.
+                testStop.stop();
+                System.out.println(&quot;Thread terminated.&quot;);
+            }
+
+        }
+    }
+}
+</code></pre>
+<p><strong>Summary</strong></p>
+<ul>
+<li>
+<ol>
+<li>Decalare an indicator within thread.</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Apply it in the thread.</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Provide a method to outside to change the indicator.</li>
+</ol>
+</li>
+</ul>
+<h2 id="53-thread-sleep">5.3 Thread sleep</h2>
+<ul>
+<li>sleep() method will indicate the time current thread will block.</li>
+<li>sleep() has InterruptedException.</li>
+<li>Thread is ready when reach the sleep time.</li>
+<li>sleep() can simulate network delay or time countdown.</li>
+<li>Every object has a lock, sleep won't unlock it.</li>
+</ul>
+<pre><code>// Simulate network lag: Amplify the problematic nature of the occurrence.
+public class TestSleep implements Runnable{
+        private int ticketNums = 10;
+
+        @Override public void run () {
+        while (true) {
+            if (ticketNums &lt;= 0) {
+                break;
+            }
+            //Simulation of time delay.
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(Thread.currentThread().getName() +
+             &quot; get the &quot; + ticketNums-- + &quot; ticket&quot;);
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        TestSleep ticket = new TestSleep();
+
+        new Thread(ticket, &quot;Jhon&quot;).start();
+        new Thread(ticket, &quot;Ash&quot;).start();
+        new Thread(ticket, &quot;Lisa&quot;).start();
+
+    }
+}
+</code></pre>
+<pre><code>//Simulate countdown:
+    public static void tenDown(){
+        int num = 10;
+        while (true){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(num--);
+            if (num &lt;= 0){
+                break;
+            }
+        }
+    }
+</code></pre>
+<pre><code>//Print the system time.
+public static void startTime(){
+        Date time = new Date(System.currentTimeMillis());
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(time));
+        //Update current time.
+        time = new Date(System.currentTimeMillis());
+    }
+</code></pre>
+<h2 id="54-thread-yield">5.4 Thread yield</h2>
+<ul>
+<li>Yield thred, let current thread pause instead block.</li>
+<li>Change thread states from running into ready.</li>
+<li><strong>Yiled is not always successful! It depends on CPU dispatch.</strong></li>
+</ul>
+<pre><code>public class TestYield {
+    public static void main(String[] args) {
+
+        MyYield myYield = new MyYield();
+
+        new Thread(myYield, &quot;a&quot;).start();
+        new Thread(myYield, &quot;b&quot;).start();
+    }
+
+}
+
+class MyYield implements Runnable{
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + &quot; Thread starts.&quot;);
+        Thread.yield();
+        System.out.println(Thread.currentThread().getName() + &quot; Thread ends&quot;);
+    }
+}
+</code></pre>
+<p>Result:</p>
+<pre><code>a Thread starts.
+b Thread starts.
+a Thread ends
+b Thread ends
+</code></pre>
+<h2 id="55-thread-join">5.5 Thread join</h2>
+<ul>
+<li>join() method merges threads, other threads are blocked and will be executed when the thread ended.</li>
+<li>Can consider it as a queue-jumper.</li>
+</ul>
+<pre><code>public class TestJoin implements Runnable{
+   @Override
+   public void run() {
+       for (int i = 0; i &lt; 100; i++)
+       {
+           System.out.println(&quot;Thread VIP is coming.&quot; + i);
+       }
+   }
+
+   public static void main(String[] args) {
+       TestJoin testJoin = new TestJoin();
+       Thread thread= new Thread(testJoin);
+       thread.start();
+
+       //Main thread
+       for (int i = 0; i &lt; 1000; i++) {
+           if (i == 200){
+               try {
+                   thread.join();//Jump queue
+                   System.out.println(&quot;Main in &quot; + i);
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               }
+           }
+       }
+   }
+}
+</code></pre>
+<h2 id="56-observe-thread-states">5.6 Observe thread states</h2>
+<pre><code>public class TestObserveState {
+    public static void main(String[] args) {
+        Thread thread = new Thread( ()-&gt; {
+            for (int i = 0; i &lt; 5; i++) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println(&quot;/////////////&quot;);
+        });
+
+        //Observe state
+        Thread.State state = thread.getState();
+        System.out.println(state);//NEW
+
+        //Observation after start
+        thread.start();//Start the thread
+        state = thread.getState();
+        System.out.println(state);//Runnable
+
+
+        //Print state as long as the thread isn't terminated.
+        while (state != Thread.State.TERMINATED){
+            try {
+                Thread.sleep(1000);
+                state = thread.getState();//Update thread state
+                System.out.println(state);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
+}
+
+</code></pre>
+<p>NEW<br>
+RUNNABLE<br>
+TIMED_WAITING<br>
+TIMED_WAITING<br>
+TIMED_WAITING<br>
+TIMED_WAITING<br>
+RUNNABLE<br>
+/////////////<br>
+TERMINATED</p>
+<h2 id="57-thread-priority">5.7 Thread priority</h2>
+<ul>
+<li>The priority of thread is expressed numerically.<pre><code>Thread.MIN_PRIORITY = 1;
+Thread.MAX_PRIORITY = 10;
+Thread.NORM_PRIORITY = 5;
+</code></pre>
+</li>
+<li>Use getPriority() or setPriority(int xxx) to acuqire priority.</li>
+</ul>
+<pre><code>public class TestPriority {
+    public static void main(String[] args) {
+
+        //The default priority of main thread.
+        System.out.println(Thread.currentThread().getName() +
+         &quot;--&gt;&quot; + Thread.currentThread().getPriority());
+
+        MyPriority myPriority = new MyPriority();
+
+        Thread t1 = new Thread(myPriority);
+        Thread t2 = new Thread(myPriority);
+        Thread t3 = new Thread(myPriority);
+        Thread t4 = new Thread(myPriority);
+
+        //Set priority at first
+        t1.start();
+
+        t2.setPriority(1);
+        t2.start();
+
+        t3.setPriority(4);
+        t3.start();
+
+        t4.setPriority(Thread.MAX_PRIORITY);
+        t4.start();
+    }
+}
+
+class MyPriority implements Runnable{
+
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + 
+        &quot;--&gt;&quot; + Thread.currentThread().getPriority());
+    }
+}
+</code></pre>
+<p>Low priority does not mean low probability of getting a dispatch.<br>
+It all depends on CPU dispatch.</p>
+<h2 id="58-daemon-thread">5.8 Daemon thread</h2>
+<ul>
+<li>Threads are divided into user threads and daemon threads.</li>
+<li>VM must ensure user threads executed properly.</li>
+<li>VM does not have to wait for deamon threads to finish executing.</li>
+</ul>
+<pre><code>
+public class TestDaemonThread {
+    public static void main(String[] args) {
+        Guardian guardian = new Guardian();
+        You you = new You();
+
+        Thread thread = new Thread(guardian);
+
+        //False is default, it means user thread.
+        //Threads are commonly user thread.
+        thread.setDaemon(true);
+
+        //Daemon thread starts.
+        thread.start();
+
+        //User thread starts.
+        new Thread(you).start();
+    }
+}
+
+//Guardian
+
+class Guardian implements Runnable{
+    @Override
+    public void run() {
+        while (true){
+            System.out.println(&quot;Bless you.&quot;);
+        }
+    }
+}
+
+//You
+class You implements Runnable{
+    @Override
+    public void run() {
+        System.out.println(&quot;----------Hello world!---------&quot;);
+        for (int i = 0; i &lt; 36500; i++) {
+            System.out.println(&quot;You live a happy day.&quot;);
+        }
+        System.out.println(&quot;------------Goodbye world!---------&quot;);
+    }
+}
+</code></pre>
+<p>Run Result:</p>
+<pre><code>You live a happy day.
+Bless you.
+Bless you.
+Bless you.
+Bless you.
+Bless you.
+------------Goodbye world!--------
+Bless you.
+Bless you.
+Bless you.
+</code></pre>
+<p>Once the guarded thread is finished, the VM is closed.<br>
+VM won't wait daemon thread to finish executing.</p>
+<h1 id="6-thread-synchronization">6. Thread synchronization</h1>
+<h2 id="61-concurrent">6.1 Concurrent</h2>
+<p>Multiple threads operating on the same resource.</p>
+<h2 id="61-unsafe-thread">6.1 Unsafe Thread</h2>
+<h3 id="611-unsafe-ticket-machine">6.1.1 Unsafe Ticket Machine</h3>
+<pre><code>public class UnsafeTicketMachine {
+    public static void main(String[] args) {
+        TicketMachine ticketMachine = new TicketMachine();
+
+        new Thread(ticketMachine, &quot;Me&quot;).start();
+        new Thread(ticketMachine, &quot;Billy&quot;).start();
+        new Thread(ticketMachine, &quot;Andrew&quot;).start();
+
+    }
+
+
+}
+
+
+class TicketMachine implements Runnable{
+    private int ticketNum = 10;
+    private boolean flag = true;//Stop sign can be called outside
+
+    @Override
+    public void run() {
+
+        //Buy ticket
+        while (flag){
+            buy();
+        }
+    }
+
+    public void buy(){
+
+        //Determine if tickets remain
+        if (ticketNum &lt;= 0){
+            flag = false;
+            return;
+        }
+
+        //Simulate delay
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //Buy ticket
+        System.out.println(Thread.currentThread().getName() +
+        &quot; bought &quot; + ticketNum--);
+    }
+}
+</code></pre>
+<p>run result:</p>
+<pre><code>...
+Andrew bought 5
+Billy bought 4
+Me bought 3
+Andrew bought 2
+Billy bought 1
+Me bought 0
+Andrew bought -1
+</code></pre>
+<h3 id="612-unsafe-bank">6.1.2 Unsafe Bank</h3>
+<pre><code>
+public class UnsafeBank {
+    public static void main(String[] args) {
+        Account account = new Account(100, &quot;MyAccount&quot;);
+
+        WithDraw me = new WithDraw(account, 60, &quot;Me&quot;);
+        WithDraw partner = new WithDraw(account, 60, &quot;Partner&quot;);
+
+        me.start();
+        partner.start();
+    }
+}
+
+class Account {
+    int balance;
+    String accountName;
+
+    public Account(int balance, String accountName) {
+        this.balance = balance;
+        this.accountName = accountName;
+    }
+
+}
+
+class WithDraw extends Thread{
+
+    Account account;
+    int cash;
+    int transaction;
+
+    public WithDraw(Account account, int transaction, String accountName){
+        super(accountName);
+        this.account = account;
+        this.transaction = transaction;
+    }
+
+    //Withdraw
+    @Override
+    public void run() {
+
+        //Determine if the account has balance
+        if (account.balance - transaction &lt; 0){
+            System.out.println(Thread.currentThread().getName() + 
+            &quot; can't withdraw enough money.&quot;);
+            return;
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        account.balance -= transaction;
+        cash += transaction;
+
+        System.out.println(account.accountName + &quot; balance: &quot; + account.balance);
+        //Thread.currentThread().getName() = this.getName()
+        System.out.println(this.getName() + &quot; cash: &quot; + cash);
+
+    }
+
+}
+</code></pre>
+<h3 id="613-unsafe-list">6.1.3 Unsafe List</h3>
+<pre><code>import java.util.ArrayList;
+import java.util.List;
+
+public class UnsafeList {
+    public static void main(String[] args) {
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; 10000; i++) {
+            new Thread( ()-&gt;{
+                list.add(Thread.currentThread().getName());
+            }).start();
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(list.size());
+    }
+
+}
+</code></pre>
+<p>Run result:</p>
+<pre><code>9989
+</code></pre>
+<h2 id="63-synchronized">6.3 Synchronized</h2>
+<h3 id="631-synchronized-method">6.3.1 Synchronized method</h3>
+<p>Use a key word <strong>synchronized</strong> to control the access of object.</p>
+<pre><code>public sychronized void method(int args){}
+</code></pre>
+<p>Every object corresponds to a lock, every synchronized method must<br>
+have the lock of executing this method to procceed, otherwise the threads<br>
+will be blocked.<br>
+Once the method is executed, the lock is exclusive until the method returns.<br>
+The threads blocked by this lock can only continue to execute.</p>
+<p><strong>Disadvantage:</strong><br>
+It will affect the effiency when declare a large method as synchronized.<br>
+e.g.: Read only and edit.</p>
+<p><em>Try to solve Unsafe Bank with sync method:</em></p>
+<pre><code>public synchronized void run() {
+</code></pre>
+<p>Run result:</p>
+<pre><code>//Still unsafe
+MyAccount balance: 40
+Me cash: 60
+MyAccount balance: -20
+Partner cash: 60
+</code></pre>
+<p><em>Reason:</em><br>
+Synchronized locks &quot;this&quot; as default.<br>
+Therefore the lock is on different objects(different WithDraw object) instead same Account object.</p>
+<h3 id="632-synchronized-block">6.3.2 Synchronized block</h3>
+<pre><code>synchronized(Obj){}
+</code></pre>
+<p>Obj is called synchronized monitor.</p>
+<ul>
+<li>Obj can be any object but recommanded shared resource.</li>
+<li>Do not have to indicate synchronized monitor in synchronized method due to the synchronized monitor of synchronized method is this which the object itself or class.</li>
+</ul>
+<p>Steps of synchronized monitor execution:</p>
+<ol>
+<li>The 1st thread accessed, locked the synchronized monitor, executed the codes.</li>
+<li>When the 2nd thread accesses, found that the sync monitor is locked and inaccessible.</li>
+<li>The 1st thread finished access, unlock the sync monitor.</li>
+<li>The 2nd thread accessed, found that sync monitor isn't locked, then locked it and continued accessing.</li>
+</ol>
+<p>The object to be locked is object needs to add/edit/delete.(Object may change.)<br>
+<em>Try to solve Unsafe Bank with sync block:</em></p>
+<pre><code>
+public class UnsafeBank {
+    public static void main(String[] args) {
+        Account account = new Account(100, &quot;MyAccount&quot;);
+
+        WithDraw me = new WithDraw(account, 60, &quot;Me&quot;);
+        WithDraw partner = new WithDraw(account, 60, &quot;Partner&quot;);
+
+        me.start();
+        partner.start();
+    }
+}
+
+class Account {
+    int balance;
+    String accountName;
+
+    public Account(int balance, String accountName) {
+        this.balance = balance;
+        this.accountName = accountName;
+    }
+
+}
+
+class WithDraw extends Thread{
+
+    Account account;
+    int cash;
+    int transaction;
+
+    public WithDraw(Account account, int transaction, String accountName){
+        super(accountName);
+        this.account = account;
+        this.transaction = transaction;
+    }
+
+    //Withdraw
+    @Override
+    public void run() {
+
+        //Lock the account
+        synchronized (account){
+            //Determine if the account has balance
+            if (account.balance - transaction &lt; 0){
+                System.out.println(Thread.currentThread().getName() + &quot; can't withdraw enough money.&quot;);
+                return;
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            account.balance -= transaction;
+            cash += transaction;
+
+            System.out.println(account.accountName + &quot; balance: &quot; + account.balance);
+            //Thread.currentThread().getName() = this.getName()
+            System.out.println(this.getName() + &quot; cash: &quot; + cash);
+
+        }
+
+    }
+}
+</code></pre>
+<p><em>Try to solve unsafe list with sync block:</em></p>
+<pre><code>
+import java.util.ArrayList;
+import java.util.List;
+
+public class UnsafeList {
+    public static void main(String[] args) {
+
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; 10000; i++) {
+            new Thread(() -&gt; {
+                //Lock the list
+                synchronized (list) {
+                    list.add(Thread.currentThread().getName());
+                }
+            }).start();
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(list.size());
+    }
+
+}
+
+</code></pre>
+<h2 id="64-deadlock">6.4 Deadlock</h2>
+<p>When two or more processes want to use a non-shareable resource held by each other.</p>
+<p>Four enssential conditions of deadlock:</p>
+<ol>
+<li>Mutually exclusive condition: Each resource is used by one process at each time.</li>
+<li>Request and hold condition: A process blocked by requesting another resource holds the resource it has acquired.</li>
+<li>Non-deprivation of condition: The resources already acquired by process cannot be forcibly taken away until they are used up.</li>
+<li>Loop Waiting Condition: There is a head-to-tail circular waiting resource relationship between processes.</li>
+</ol>
+<p>To prevent deadlock we need to avoid these four conditions.</p>
+<h1 id="7-lock">7. Lock</h1>
+<p>Since JDK 5.0, Java provided more powerful way of thread sync:<br>
+Use Lock object as sync lock.</p>
+<p>java.util.concurrent.locks.Lock interface is a util for controling accesses shared-resources of multiple threads. Lock provides the exclusive access of shared-resources, only one thread can lock the Lock object, thread should acquire Lock object before access shared-resources.</p>
+<p>ReentrantLock implements Lock, it has the same concurrent natural and memory semantics.<br>
+ReentrantLock is commonly used in implementing thread security, it could lock and unlock explicitly.</p>
+<pre><code>import java.util.concurrent.locks.ReentrantLock;
+
+public class TestLock {
+    public static void main(String[] args) {
+        Test test = new Test();
+
+        new Thread(test).start();
+        new Thread(test).start();
+        new Thread(test).start();
+    }
+}
+
+class Test implements Runnable{
+    int num = 10;
+    //Declare the lock
+    private final ReentrantLock lock = new ReentrantLock();
+
+    @Override
+    public void run() {
+        while (true){
+            try{
+                //Lock the thread
+                lock.lock();
+                if (num&gt;0){
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(num--);
+                }
+                else {
+                    break;
+                }
+            }
+            finally {
+                //Unlock
+                lock.unlock();
+            }
+
+        }
+    }
+}
+
+</code></pre>
+<h2 id="71-the-conparison-between-synchronized-and-lock">7.1 The conparison between synchronized and Lock</h2>
+<ul>
+<li>Lock is explicit lock(mannually lock and unlock)</li>
+<li>Lock only has block lock while synchronized has block and method lock.</li>
+<li>JVM use Lock to spend less time to dispatch threads and has better performance. It has better extensibility as well(Provide more subclass).</li>
+<li>Priority order of use<br>
+Lock &gt; synchronized block &gt; synchronized method</li>
+</ul>
+<h1 id="8-threaded-collaboration">8. Threaded collaboration</h1>
+<p><em>-Producer &amp; consumer model-</em></p>
+<h2 id="81-java-communication-methods">8.1 Java communication methods:</h2>
+<ul>
+<li>wait(): Thread keeps waiting. Unlike the sleep(), it will unlock the lock.</li>
+<li>wait(long timeout): Waiting for a specified length of time</li>
+<li>notify(): Wake up a thread that in waiting state.</li>
+<li>notifyAll(): Wake up all threads that call wait() on same object in order of priority.<br>
+<strong>Notice:</strong><br>
+These methods are all Object class's methods and can only be used in synchronized methods or synchronized block, otherwise IllegalMonitorStateException will be thrown.</li>
+</ul>
+<h2 id="82-monitor-method">8.2 Monitor method</h2>
+<pre><code>
+//Test: Producer-Consumer Model --&gt; Use synContainer
+
+//Producer, consumer, product, synContainer
+public class TestPC {
+    public static void main(String[] args) {
+        SynContainer container = new SynContainer();
+
+        new Producer(container).start();
+        new Consumer(container).start();
+    }
+}
+
+
+class Producer extends Thread{
+    SynContainer container;
+
+    public Producer(SynContainer container){
+        this.container = container;
+    }
+
+    //Produce
+    @Override
+    public void run(){
+        for (int i = 0; i &lt; 20; i++) {
+            System.out.println(&quot;Producer have produced --&gt; &quot; + i + &quot; product.&quot;);
+            container.push(new Product(i));
+        }
+    }
+
+}
+
+class Consumer extends Thread{
+    SynContainer container;
+
+    public Consumer(SynContainer container){
+        this.container = container;
+    }
+
+    //Consume
+    @Override
+    public void run(){
+        for (int i = 0; i &lt; 20; i++) {
+            System.out.println(&quot;Consumer have consumed &quot; + container.pop().id + &quot; product.&quot;);
+        }
+    }
+}
+
+class Product extends Thread{
+    int id;
+    public Product (int id){
+        this.id = id;
+    }
+
+}
+
+class SynContainer{
+    //Need a container capacity.
+    Product[] products = new Product[10];
+    int count = 0;
+
+    //Producer put in product
+    public synchronized void push(Product product){
+
+        //If the container is full.
+        if (count == products.length){
+            //Need to wait consumer to consume.
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        //If not full, put it in.
+        products[count] = product;
+        count++;
+
+        //Notify consumer to consume
+        this.notifyAll();
+    }
+
+    //Consumer consumes product
+    public synchronized Product pop(){
+        //Determine whether can consume
+        if (count == 0){
+            //Consumer waiting producer produce.
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        //If can consume.
+        count--;
+        //Have consumed, notify the producer.
+        this.notifyAll();
+        return products[count];
+    }
+
+}
+</code></pre>
+<h2 id="83-solution2-use-flag">8.3 Solution2: Use flag.</h2>
+<pre><code>public class TestPC2 {
+    public static void main(String[] args) {
+        Show show = new Show();
+        new Cast(show).start();
+        new Audience(show).start();
+
+    }
+}
+
+//Producer --&gt; cast
+class Cast extends Thread{
+    Show show = new Show();
+
+    public Cast(Show show) {
+        this.show = show;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 10; i++) {
+            if (i%2 == 0){
+                this.show.record(&quot;X-factor&quot;);
+            }
+            else{
+                this.show.record(&quot;The voice&quot;);
+            }
+            
+        }
+    }
+}
+
+//Consumer --&gt; audience
+class Audience extends Thread{
+    Show show = new Show();
+
+    public Audience(Show show) {
+        this.show = show;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 0; i &lt; 10; i++) {
+            show.watch();
+        }
+    }
+}
+
+//Product --&gt; show
+class Show extends Thread{
+    //Cast recoding, audience waiting  T
+    //Audience watching, cast waiting  F
+    String programme;
+    boolean flag = true;
+
+    //Recording
+    public synchronized void record(String programme){
+        if (!flag){
+            try {
+                //If programme has not been watched yet.
+                this.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(&quot;Cast is recording &quot; + programme);
+
+        //Notify audience to watch
+        this.notifyAll();
+        this.programme = programme;
+        this.flag = !this.flag;
+    }
+
+    //Watching
+    public synchronized void watch(){
+        if (flag){
+            //If recording hasn't done yet
+            try {
+                this.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println(&quot;Watching the &quot; + programme);
+
+        //Notify cast to record new programme
+        this.notifyAll();
+        this.flag = !this.flag;
+    }
+
+}
+
+</code></pre>
+<p>Run result:</p>
+<pre><code>...
+Cast is recording X-factor
+Watching the X-factor
+Cast is recording The voice
+Watching the The voice
+Cast is recording X-factor
+Watching the X-factor
+Cast is recording The voice
+Watching the The voice
+</code></pre>
+<h1 id="9-thread-pool">9. Thread pool</h1>
+<ul>
+<li>
+<p>Background: Some resources that been created and destroyed often like concurrent threads have significant impact on performance.</p>
+</li>
+<li>
+<p>Solution: Pre-create some threads and put them in threads pool. Get it directly when using and put it back after use. It can prevent create and detroy frequently and implement recycling.</p>
+</li>
+<li>
+<p>Advantage:</p>
+</li>
+<li>
+<ol>
+<li>Improve responsiveness.(Decrease the time consume in create new threads.)</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Reduce consumption of resources.(Re-use the threads in poll, don't have to create new one.)</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Easy to manage threads.</li>
+</ol>
+</li>
+<li>
+<p>corePoolSize:</p>
+</li>
+<li>
+<p>maximunPoolSize:</p>
+</li>
+<li>
+<p>keepAliveTime: How long will it stop when there is no thread in it.</p>
+</li>
+</ul>
+<p>JDK 5.0 provided thread pool API: <strong>ExecutorService</strong> and <strong>Executors</strong></p>
+<ul>
+<li><strong>ExecutorService</strong>: actual thread interface. Common subclass: ThreadPoolExecutor</li>
+</ul>
+<pre><code>//Execute command/task, no return value, commonly execute Runnable.
+void execute(Runnable command)
+
+//Execute task, has return value, commonly execute Callable.
+&lt;T&gt;Futer&lt;T&gt;submit (Callable&lt;T&gt; task)
+
+//Shut down pool
+void shutdown()
+</code></pre>
+<ul>
+<li><strong>Executors</strong>: Util class, used to create and return different types of pools</li>
+</ul>
+<h2 id="91-execute-runnable-execute">9.1 Execute Runnable: execute()</h2>
+<p>Execute Runnable: use execute()</p>
+<pre><code>import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+
+public class TestPool {
+    public static void main(String[] args) {
+        //1. Create service, create pool
+        //NewFixedThreadPool : arg is size of pool
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+        //Execute
+        executorService.execute(new MyThread());
+        executorService.execute(new MyThread());
+        executorService.execute(new MyThread());
+        executorService.execute(new MyThread());
+
+        //2. Disconnect.
+        executorService.shutdown();
+
+    }
+}
+class MyThread implements Runnable {
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread().getName());
+    }
+}
+
+</code></pre>
+<h2 id="92-execute-callable">9.2 Execute Callable</h2>
+<pre><code>public class TestPool {
+    public static void main(String[] args) {
+
+        FutureTask&lt;Integer&gt; futureTask = new FutureTask&lt;Integer&gt;(new MyThread());
+        new Thread(futureTask).start();
+
+        //Get the return value.
+        try {
+            Integer integer = futureTask.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+class MyThread implements Callable&lt;Integer&gt; {
+    @Override
+    public Integer call() throws Exception{
+        return 100;
+    }
+
+}
+
+</code></pre>
 ]]></content>
     </entry>
 </feed>
