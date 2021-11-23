@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://XinyuWang-Isak.github.io</id>
     <title>Isak&apos;s Study Life</title>
-    <updated>2021-11-18T02:17:04.073Z</updated>
+    <updated>2021-11-23T03:15:52.034Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://XinyuWang-Isak.github.io"/>
     <link rel="self" href="https://XinyuWang-Isak.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://XinyuWang-Isak.github.io/images/avatar.png</logo>
     <icon>https://XinyuWang-Isak.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Isak&apos;s Study Life</rights>
+    <entry>
+        <title type="html"><![CDATA[HTML5 study notes]]></title>
+        <id>https://XinyuWang-Isak.github.io/html5-study-notes/</id>
+        <link href="https://XinyuWang-Isak.github.io/html5-study-notes/">
+        </link>
+        <updated>2021-11-18T08:17:09.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="1-adavantage">1. Adavantage</h1>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Manipulate annotations with reflection]]></title>
         <id>https://XinyuWang-Isak.github.io/manipulate-annotations-with-reflection/</id>
