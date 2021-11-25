@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://XinyuWang-Isak.github.io/favicon.ico?v=1637637788783">
+<link rel="shortcut icon" href="https://XinyuWang-Isak.github.io/favicon.ico?v=1637816611763">
 <link rel="stylesheet" href="https://XinyuWang-Isak.github.io/styles/main.css">
 
 
@@ -18,8 +18,23 @@
 
 
 
-    <meta name="description" content="1. Adavantage
-" />
+    <meta name="description" content="1. Selector
+
+2.1 Fundamental selector:
+
+Priority:  ID &gt; Class &gt; Label
+
+
+
+
+Label selector
+
+
+
+ h1{
+/*
+Modify style
+*..." />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -29,7 +44,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://XinyuWang-Isak.github.io">
-        <img src="https://XinyuWang-Isak.github.io/images/avatar.png?v=1637637788783" class="site-logo">
+        <img src="https://XinyuWang-Isak.github.io/images/avatar.png?v=1637816611763" class="site-logo">
         <h1 class="site-title">Isak&#39;s Study Life</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -92,10 +107,60 @@
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
             <h2 class="post-title">HTML5 study notes</h2>
-            <div class="post-date">2021-11-18</div>
+            <div class="post-date">2021-11-19</div>
             
             <div class="post-content" v-pre>
-              <h1 id="1-adavantage">1. Adavantage</h1>
+              <h1 id="1-selector">1. Selector</h1>
+<blockquote></blockquote>
+<h2 id="21-fundamental-selector">2.1 Fundamental selector:</h2>
+<blockquote>
+<p>Priority:  ID &gt; Class &gt; Label</p>
+</blockquote>
+<ul>
+<li>
+<ol>
+<li>Label selector</li>
+</ol>
+</li>
+</ul>
+<pre><code> h1{
+/*
+Modify style
+*/
+}
+</code></pre>
+<ul>
+<li>
+<ol start="2">
+<li>Class selector</li>
+</ol>
+</li>
+</ul>
+<pre><code>.className{
+/*
+Modify style
+*/
+}
+
+&lt;h1 class = &quot;className&quot;&gt;&lt;/h1&gt;
+</code></pre>
+<ul>
+<li>
+<ol start="3">
+<li>ID selector</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>Must be unique</p>
+</blockquote>
+<pre><code>#id{
+/*
+Modify style
+*/
+}
+&lt;h1 class = &quot;className&quot;&gt;&lt;/h1&gt;
+</code></pre>
 
             </div>
             
