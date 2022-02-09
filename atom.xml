@@ -2,73 +2,14 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://XinyuWang-Isak.github.io</id>
     <title>Isak&apos;s Study Life</title>
-    <updated>2021-11-25T05:03:35.341Z</updated>
+    <updated>2022-02-09T12:42:21.953Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://XinyuWang-Isak.github.io"/>
     <link rel="self" href="https://XinyuWang-Isak.github.io/atom.xml"/>
     <subtitle>Be a better person than yesterday.</subtitle>
     <logo>https://XinyuWang-Isak.github.io/images/avatar.png</logo>
     <icon>https://XinyuWang-Isak.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Isak&apos;s Study Life</rights>
-    <entry>
-        <title type="html"><![CDATA[HTML5 study notes]]></title>
-        <id>https://XinyuWang-Isak.github.io/html5-study-notes/</id>
-        <link href="https://XinyuWang-Isak.github.io/html5-study-notes/">
-        </link>
-        <updated>2021-11-18T14:17:09.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="1-selector">1. Selector</h1>
-<blockquote></blockquote>
-<h2 id="21-fundamental-selector">2.1 Fundamental selector:</h2>
-<blockquote>
-<p>Priority:  ID &gt; Class &gt; Label</p>
-</blockquote>
-<ul>
-<li>
-<ol>
-<li>Label selector</li>
-</ol>
-</li>
-</ul>
-<pre><code> h1{
-/*
-Modify style
-*/
-}
-</code></pre>
-<ul>
-<li>
-<ol start="2">
-<li>Class selector</li>
-</ol>
-</li>
-</ul>
-<pre><code>.className{
-/*
-Modify style
-*/
-}
-
-&lt;h1 class = &quot;className&quot;&gt;&lt;/h1&gt;
-</code></pre>
-<ul>
-<li>
-<ol start="3">
-<li>ID selector</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<p>Must be unique</p>
-</blockquote>
-<pre><code>#id{
-/*
-Modify style
-*/
-}
-&lt;h1 class = &quot;className&quot;&gt;&lt;/h1&gt;
-</code></pre>
-]]></content>
-    </entry>
+    <rights>All rights reserved 2022, Isak&apos;s Study Life</rights>
     <entry>
         <title type="html"><![CDATA[Manipulate annotations with reflection]]></title>
         <id>https://XinyuWang-Isak.github.io/manipulate-annotations-with-reflection/</id>
